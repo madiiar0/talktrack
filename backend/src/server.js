@@ -13,28 +13,39 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT || 5001
 
+function normalizeOrigin(origin) {
+  return typeof origin === 'string' ? origin.replace(/\/+$/, '') : ''
+}
+
 const allowedOrigins = new Set(
   [
     process.env.FRONTEND_URL,
+    'https://talktrack.life',
+    'https://www.talktrack.life',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-  ].filter(Boolean),
+  ]
+    .map(normalizeOrigin)
+    .filter(Boolean),
 )
+
+const corsOptions = {
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(normalizeOrigin(origin))) {
+      callback(null, true)
+      return
+    }
+
+    callback(new Error('Not allowed by CORS'))
+  },
+}
 
 app.use(
-  cors({
-    origin(origin, callback) {
-      if (!origin || allowedOrigins.has(origin)) {
-        callback(null, true)
-        return
-      }
-
-      callback(new Error('Not allowed by CORS'))
-    },
-  }),
+  cors(corsOptions),
 )
+app.options('*', cors(corsOptions))
 app.use(express.json({ limit: '16kb' }))
 
 app.get('/health', (_req, res) => {
