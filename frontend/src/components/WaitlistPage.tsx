@@ -19,7 +19,10 @@ const PRICE_OPTIONS = [
 type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 function getApiUrl() {
-  return import.meta.env.VITE_API_URL || 'http://localhost:5001'
+  return (import.meta.env.VITE_API_URL || 'http://localhost:5001').replace(
+    /\/+$/,
+    '',
+  )
 }
 
 export default function WaitlistPage() {
