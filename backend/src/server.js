@@ -45,6 +45,25 @@ const corsOptions = {
 app.use(
   cors(corsOptions),
 )
+app.use((req, res, next) => {
+  const requestOrigin = normalizeOrigin(req.headers.origin)
+
+  if (requestOrigin && allowedOrigins.has(requestOrigin)) {
+    res.setHeader('Access-Control-Allow-Origin', requestOrigin)
+    res.setHeader('Vary', 'Origin')
+    res.setHeader('Access-Control-Allow-Credentials', 'true')
+  }
+
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).end()
+    return
+  }
+
+  next()
+})
 app.options('*', cors(corsOptions))
 app.use(express.json({ limit: '16kb' }))
 
