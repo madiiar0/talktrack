@@ -1,0 +1,35 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Problems from './components/Problems'
+import GlobalBackground from './components/GlobalBackground'
+import SolutionSection from './components/SolutionSection'
+import KeyFeaturesSection from './components/KeyFeaturesSection'
+import FaqSection from './components/FaqSection'
+import FinalCTASection from './components/FinalCTASection'
+import Footer from './components/Footer'
+import WaitlistPage from './components/WaitlistPage'
+
+export default function App() {
+  const isWaitlistPage =
+    typeof window !== 'undefined' && window.location.pathname === '/waitlist'
+
+  if (isWaitlistPage) {
+    return <WaitlistPage />
+  }
+
+  return (
+    <div className="relative isolate min-h-screen overflow-x-hidden bg-[#0b0b0b]">
+      <GlobalBackground />
+      <Navbar />
+      <main className="relative z-10">
+        <Hero />
+        <Problems />
+        <SolutionSection />
+        <KeyFeaturesSection />
+        <FaqSection />
+        <FinalCTASection />
+        <Footer />
+      </main>
+    </div>
+  )
+}
