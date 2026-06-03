@@ -51,8 +51,37 @@ function isValidContact(contact) {
   return emailPattern.test(contact) || (phonePattern.test(contact) && digitCount >= 7)
 }
 
-function getBody(req) {
-  if (!req.body) return {}
+async function readRequestText(req) {
+  const chunks = []
+
+  for await (const chunk of req) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk))
+  }
+
+  return Buffer.concat(chunks).toString('utf8')
+}
+
+async function getBody(req) {
+  if (!req.body) {
+    const text = await readRequestText(req)
+
+    if (!text) return {}
+
+    try {
+      return JSON.parse(text)
+    } catch {
+      return {}
+    }
+  }
+
+  if (Buffer.isBuffer(req.body)) {
+    try {
+      return JSON.parse(req.body.toString('utf8'))
+    } catch {
+      return {}
+    }
+  }
+
   if (typeof req.body === 'string') {
     try {
       return JSON.parse(req.body)
@@ -117,7 +146,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { payload, error } = validateWaitlistPayload(getBody(req))
+    const { payload, error } = validateWaitlistPayload(await getBody(req))
 
     if (error) {
       res.status(400).json({
@@ -147,10 +176,12 @@ export default async function handler(req, res) {
       success: true,
       message: 'You are on the waitlist.',
     })
-  } catch {
+  } catch (error) {
+    console.error('Waitlist API error:', error?.message || error)
+
     res.status(500).json({
       success: false,
-      message: 'Something went wrong. Please try again.',
+      message: 'Could not save your request right now. Please try again.',
     })
   }
 }
