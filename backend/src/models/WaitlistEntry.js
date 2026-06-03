@@ -39,6 +39,8 @@ const waitlistEntrySchema = new mongoose.Schema(
   },
 )
 
-const WaitlistEntry = mongoose.model('WaitlistEntry', waitlistEntrySchema)
+const WaitlistEntry =
+  mongoose.models.WaitlistEntry ||
+  mongoose.model('WaitlistEntry', waitlistEntrySchema)
 
 export default WaitlistEntry

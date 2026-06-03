@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/waitlist/count",
+      "dest": "/api/waitlist/count.js"
+    },
+    {
+      "src": "/api/waitlist",
+      "dest": "/api/waitlist.js"
+    }
+  ]
+}
