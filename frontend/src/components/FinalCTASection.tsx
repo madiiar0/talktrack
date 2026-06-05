@@ -84,11 +84,10 @@ export default function FinalCTASection() {
 
         <Reveal isVisible={isVisible} delay={100}>
           <h2 className="mx-auto max-w-[980px] text-[clamp(38px,5.4vw,86px)] font-black leading-[0.98] tracking-[-0.03em] text-white">
-            Start understanding yourself in{' '}
+            Build a personal AI memory for{' '}
             <span className="bg-gradient-to-r from-mint to-mint-light bg-clip-text text-transparent">
-              2 minutes
-            </span>{' '}
-            a day.
+              your life.
+            </span>
           </h2>
         </Reveal>
 
@@ -101,7 +100,7 @@ export default function FinalCTASection() {
             href="/waitlist"
             className="inline-flex min-h-[56px] items-center justify-center rounded-full bg-gradient-to-r from-mint to-mint-light px-9 text-[14px] font-black uppercase tracking-[0.05em] text-black shadow-[0_14px_42px_-20px_rgba(36,255,174,0.55)] transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-22px_rgba(36,255,174,0.68)] active:translate-y-0 sm:min-h-[62px] sm:px-11 sm:text-[15px]"
           >
-            GET EARLY ACCESS
+            JOIN EARLY ACCESS
             <ArrowRight size={17} strokeWidth={2.6} aria-hidden="true" className="ml-2" />
           </a>
         </Reveal>

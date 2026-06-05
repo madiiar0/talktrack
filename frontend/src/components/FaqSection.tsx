@@ -4,39 +4,39 @@ import type { ReactNode } from 'react'
 
 const FAQS = [
   {
-    question: 'Do I have to write every day?',
+    question: 'What is TalkTrack?',
     answer:
-      'No. TalkTrack is built for people who do not want traditional journaling. You can simply speak for around 2 minutes, and TalkTrack will structure your check-in for you.',
+      'TalkTrack is a personal AI agent that tracks your life through normal conversation. You just talk to it, and it turns what you say into structured personal data, charts, and insights — no forms, no manual logging.',
   },
   {
-    question: 'What does TalkTrack actually track?',
+    question: 'How is this different from journaling?',
     answer:
-      'TalkTrack tracks the things that matter in your daily life: habits, emotions, repeated patterns, personal progress, decisions, routines, and life areas like health, money, relationships, freedom, and faith.',
+      'Journaling gives you text you have to re-read to find anything. TalkTrack turns your conversations into structured data, so you get the benefits of journaling, habit tracking, and analytics in one place — without doing the manual work.',
   },
   {
-    question: 'How is this different from a normal journaling app?',
+    question: 'Do I need to manually log everything?',
     answer:
-      'Normal journaling apps mostly store what you write. TalkTrack turns your check-ins into structured records, personal stats, insights, and context that your AI Advisor can use later.',
+      'No. That is the whole point. You talk naturally and TalkTrack handles the structure behind the scenes — capturing your mood, sleep, focus, and anything else you mention, automatically.',
   },
   {
-    question: 'Can I ask the AI questions about my life?',
+    question: 'What can TalkTrack track?',
     answer:
-      'Yes. As your records grow, you can ask questions like "Why was this week harder?" or "What habit keeps repeating?" and TalkTrack can answer based on your actual history.',
+      'Mood, sleep, energy, anxiety, focus, productivity, workouts, habits, routines, goals, and any custom topic you ask it to watch. If you can talk about it, TalkTrack can track it.',
   },
   {
-    question: 'What if I miss a day?',
+    question: 'Can I stop or change what it tracks?',
     answer:
-      'Nothing breaks. Streaks and XP are there to help you stay consistent, not punish you. The goal is long-term self-understanding, not perfection.',
+      'Anytime, in plain English. Say "Start tracking my anxiety," "Stop tracking sleep," or "Track how often I work out," and your AI updates instantly. You stay in full control of what it follows.',
   },
   {
-    question: 'Is my data private?',
+    question: 'Will TalkTrack show charts and insights?',
     answer:
-      'TalkTrack is designed around private reflection. Personal check-ins should be treated as sensitive data, so the product should communicate privacy clearly and avoid exposing user records publicly.',
+      'Yes. Ask for trends, averages, comparisons, or summaries and TalkTrack answers with clear charts and insights drawn from your own history — so you can actually see your patterns and progress over time.',
   },
   {
-    question: 'When will the app be available?',
+    question: 'Is this available on iOS and Android?',
     answer:
-      'TalkTrack is currently preparing early access. Android and iOS apps are coming soon.',
+      'TalkTrack is preparing early access now, with native iOS and Android apps coming soon. Join the waitlist to be among the first to get in.',
   },
 ]
 
@@ -186,12 +186,11 @@ export default function FaqSection() {
             FAQ
           </p>
           <h2 className="mx-auto max-w-[860px] text-[clamp(32px,4vw,62px)] font-black leading-[1] tracking-[-0.025em] text-white">
-            Questions before you start tracking your life.
+            Questions before your AI starts tracking.
           </h2>
           <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.12vw,20px)] font-medium leading-[1.55] text-white/70">
-            Everything you need to know about TalkTrack, privacy, daily
-            check-ins, and how the app turns short reflections into useful
-            insights.
+            Everything you need to know about natural-language tracking,
+            personal memory, privacy, and asking questions about your own data.
           </p>
         </Reveal>
 

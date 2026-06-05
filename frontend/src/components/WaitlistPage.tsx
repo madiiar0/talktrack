@@ -116,8 +116,8 @@ export default function WaitlistPage() {
                 Join the TalkTrack waitlist.
               </h1>
               <p className="mt-6 max-w-[580px] text-[clamp(16px,1.2vw,21px)] font-medium leading-[1.55] text-white/70">
-                Tell us where to send access and what would make TalkTrack worth
-                paying for.
+                Tell us where to send access and what you would want your
+                personal AI agent to track first.
               </p>
             </div>
 
@@ -220,7 +220,7 @@ export default function WaitlistPage() {
                 <textarea
                   value={suggestions}
                   onChange={(event) => setSuggestions(event.target.value)}
-                  placeholder="What would make you use or not use TalkTrack?"
+                  placeholder="What would you want TalkTrack to track first?"
                   maxLength={2000}
                   rows={5}
                   className="min-h-[132px] resize-y rounded-[16px] border border-white/10 bg-black/20 px-4 py-3 text-[15px] font-medium leading-[1.5] text-white outline-none transition-colors placeholder:text-white/35 focus:border-mint/45"

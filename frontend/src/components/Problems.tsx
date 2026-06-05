@@ -2,24 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 
 const PROBLEMS = [
   {
-    title: 'Your days disappear',
-    body: 'You live through important moments, emotions, decisions, and lessons, but most of them are forgotten by next week.',
+    title: 'Your history is scattered',
+    body: 'Mood apps, habit trackers, sleep logs, notes, and memories all live in different places, so no one system understands the whole picture.',
   },
   {
-    title: 'Journaling feels like work',
-    body: 'Writing every night sounds useful, but in real life it feels slow, boring, and easy to skip.',
+    title: 'Journals do not become data',
+    body: 'Writing can help, but most entries stay as plain text. You cannot easily ask them for trends, averages, charts, or changes over time.',
   },
   {
-    title: 'You miss your own patterns',
-    body: 'Your mood, habits, focus, sleep, goals, and mistakes repeat in patterns, but they are hard to notice without tracking.',
+    title: 'Manual tracking breaks',
+    body: 'Spreadsheets and rigid forms require too much maintenance. The moment life gets busy, the system stops being useful.',
   },
   {
-    title: 'AI advice feels too generic',
-    body: 'Most AI tools give surface-level advice because they do not know what happened in your life yesterday, last week, or last month.',
+    title: 'Generic AI lacks memory',
+    body: 'Most AI tools can answer a prompt, but they do not know what happened in your life yesterday, last week, or last month.',
   },
   {
-    title: 'Self-improvement takes too much effort',
-    body: 'You want the benefits of reflection, tracking, and personal insight, but not another complicated system to maintain.',
+    title: 'You cannot query your life',
+    body: 'You should be able to ask how your sleep, anxiety, mood, focus, and habits changed without building another personal database yourself.',
   },
 ]
 
@@ -72,11 +72,11 @@ export default function Problems() {
             The problem
           </p>
           <h2 className="text-[clamp(36px,5vw,78px)] font-black leading-[0.96] tracking-[-0.025em] text-white">
-            Problems You Have
+            Your life is hard to track manually.
           </h2>
           <p className="mt-6 max-w-[760px] text-[clamp(16px,1.35vw,23px)] font-medium leading-[1.45] text-white/70">
-            You want to understand your life better, but tracking it always
-            feels harder than it should.
+            You want useful patterns and answers, but the current tools force
+            you to maintain the data by hand.
           </p>
         </div>
 

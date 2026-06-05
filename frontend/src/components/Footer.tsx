@@ -2,8 +2,8 @@ import { ArrowRight } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Problems', href: '#problems' },
-  { label: 'Solution', href: '#solution' },
   { label: 'Key Features', href: '#features' },
+  { label: 'What you can track', href: '#commands' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -70,8 +70,8 @@ export default function Footer() {
           <div className="max-w-[440px]">
             <FooterLogo />
             <p className="mt-5 text-[14px] font-medium leading-[1.65] text-white/60 sm:text-[15px]">
-              2-minute check-ins that turn into insights, records, and
-              personal progress.
+              A personal AI agent that turns conversations into structured life
+              data, charts, summaries, and insights.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-[13px] font-medium text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; 2026 TalkTrack. All rights reserved.</p>
-          <p>Built for private daily reflection.</p>
+          <p>Built for private personal tracking.</p>
         </div>
       </div>
     </footer>

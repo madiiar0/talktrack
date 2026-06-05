@@ -2,9 +2,9 @@ import { ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const LINKS = [
-  { label: 'Problems You Have', href: '#problems' },
-  { label: 'Solution', href: '#solution' },
+  { label: 'Problems', href: '#problems' },
   { label: 'Key Features', href: '#features' },
+  { label: 'What you can track', href: '#commands' },
   { label: 'FAQ', href: '#faq' },
 ]
 

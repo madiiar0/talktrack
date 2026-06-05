@@ -2,7 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Problems from './components/Problems'
 import GlobalBackground from './components/GlobalBackground'
-import SolutionSection from './components/SolutionSection'
+import CommandExamplesSection from './components/CommandExamplesSection'
 import KeyFeaturesSection from './components/KeyFeaturesSection'
 import FaqSection from './components/FaqSection'
 import FinalCTASection from './components/FinalCTASection'
@@ -24,8 +24,8 @@ export default function App() {
       <main className="relative z-10">
         <Hero />
         <Problems />
-        <SolutionSection />
         <KeyFeaturesSection />
+        <CommandExamplesSection />
         <FaqSection />
         <FinalCTASection />
         <Footer />

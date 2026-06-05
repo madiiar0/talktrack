@@ -67,7 +67,15 @@ const LABEL_META: {
   { anchor: 'end', pad: 26, dx: -8, dy: 0 }, // Faith
 ]
 
-export default function AnimatedRadarChart() {
+export default function AnimatedRadarChart({
+  showLabels = true,
+  showScale = true,
+  className = '',
+}: {
+  showLabels?: boolean
+  showScale?: boolean
+  className?: string
+}) {
   // Animated nodes are mutated imperatively in the RAF loop so the morph runs
   // on the compositor without re-rendering React 60×/second.
   const mainRef = useRef<SVGPolygonElement>(null)
@@ -75,6 +83,8 @@ export default function AnimatedRadarChart() {
   const terRef = useRef<SVGPolygonElement>(null)
   const dotsRef = useRef<Array<SVGCircleElement | null>>([])
   const rafRef = useRef<number>(0)
+  const viewBox =
+    showLabels || showScale ? `0 0 ${VB_W} ${VB_H}` : '108 54 484 492'
 
   useEffect(() => {
     const reduced = window.matchMedia?.(
@@ -132,12 +142,12 @@ export default function AnimatedRadarChart() {
   }, [])
 
   return (
-    <div className="mx-auto w-full max-w-[760px]">
+    <div className={['mx-auto w-full max-w-[760px]', className].join(' ')}>
       <svg
-        viewBox={`0 0 ${VB_W} ${VB_H}`}
+        viewBox={viewBox}
         className="h-auto w-full"
         role="img"
-        aria-label="Animated radar chart of Health, Money, Relationships, Freedom and Faith, each scored out of 10."
+        aria-label="Animated personal stats radar chart."
       >
         {/* grid rings */}
         {GRID_LEVELS.map((lvl) => (
@@ -216,43 +226,49 @@ export default function AnimatedRadarChart() {
           )
         })}
 
-        {/* numeric scale up the vertical (Health) axis */}
-        {SCALE_MARKS.map((n) => {
-          const [, y] = pt(n, 0)
-          return (
-            <text
-              key={n}
-              x={CX - 12}
-              y={y + 6}
-              textAnchor="end"
-              fill="#ffffff"
-              style={{ fontSize: 19, fontWeight: 700 }}
-            >
-              {n}
-            </text>
-          )
-        })}
+        {showScale
+          ? SCALE_MARKS.map((n) => {
+              const [, y] = pt(n, 0)
+              return (
+                <text
+                  key={n}
+                  x={CX - 12}
+                  y={y + 6}
+                  textAnchor="end"
+                  fill="#ffffff"
+                  style={{ fontSize: 19, fontWeight: 700 }}
+                >
+                  {n}
+                </text>
+              )
+            })
+          : null}
 
-        {/* axis labels */}
-        {AXES.map((axis, i) => {
-          const meta = LABEL_META[i]
-          const r = R + meta.pad
-          const x = CX + r * Math.cos(angles[i]) + meta.dx
-          const y = CY + r * Math.sin(angles[i]) + meta.dy
-          return (
-            <text
-              key={axis}
-              x={x}
-              y={y}
-              textAnchor={meta.anchor}
-              dominantBaseline="middle"
-              fill="#ffffff"
-              style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-0.01em' }}
-            >
-              {axis}
-            </text>
-          )
-        })}
+        {showLabels
+          ? AXES.map((axis, i) => {
+              const meta = LABEL_META[i]
+              const r = R + meta.pad
+              const x = CX + r * Math.cos(angles[i]) + meta.dx
+              const y = CY + r * Math.sin(angles[i]) + meta.dy
+              return (
+                <text
+                  key={axis}
+                  x={x}
+                  y={y}
+                  textAnchor={meta.anchor}
+                  dominantBaseline="middle"
+                  fill="#ffffff"
+                  style={{
+                    fontSize: 26,
+                    fontWeight: 800,
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {axis}
+                </text>
+              )
+            })
+          : null}
       </svg>
     </div>
   )
