@@ -72,7 +72,7 @@ function MiniProgressBar({
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-[#dbeef3]">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-[#5dc8ea] to-[#5dc8ea]"
+          className="h-full rounded-full bg-gradient-to-r from-[#2498C7] to-[#147BA6]"
           style={{ width: `${value}%` }}
         />
       </div>
@@ -132,18 +132,18 @@ function StaticMoodLineChart() {
         ))}
         <path
           d={`M${line} L114 56 L6 56 Z`}
-          fill="rgba(93,200,234,0.14)"
+          fill="rgba(36,152,199,0.14)"
         />
         <polyline
           points={line}
           fill="none"
-          stroke="#5dc8ea"
+          stroke="#2498C7"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         {points.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#dbf4f8" />
+          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#E7F6FB" />
         ))}
       </svg>
       <div className="mt-1 grid grid-cols-7 text-center text-[8px] font-medium text-[#101820]/40">
@@ -216,8 +216,8 @@ function GamificationVisual() {
         >
           <defs>
             <linearGradient id="featureBadgeRing" x1="28" y1="188" x2="188" y2="32">
-              <stop offset="0%" stopColor="#5dc8ea" />
-              <stop offset="100%" stopColor="#dbf4f8" />
+              <stop offset="0%" stopColor="#2498C7" />
+              <stop offset="100%" stopColor="#147BA6" />
             </linearGradient>
           </defs>
           <circle
@@ -250,7 +250,7 @@ function GamificationVisual() {
       </div>
       <p className="mt-3 text-[15px] font-semibold leading-none text-[#071014] sm:text-[16px]">
         {CURRENT_EXP} / {MAX_EXP}
-        <span className="ml-1 font-bold text-[#248eb1]">EXP</span>
+        <span className="ml-1 font-bold text-[#147BA6]">EXP</span>
       </p>
     </div>
   )
@@ -274,13 +274,13 @@ function FeatureCard({
   return (
     <article
       className={[
-        'group flex h-full flex-col rounded-[26px] border p-6 text-left backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#5dc8ea]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(93,200,234,0.42)] sm:p-7',
+        'group flex h-full flex-col rounded-[26px] border p-6 text-left backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#2498C7]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(36,152,199,0.42)] sm:p-7',
         isMain
-          ? 'min-h-[500px] border-[#9ccbd8]/60 bg-gradient-to-b from-white/90 to-[#dbf4f8]/40 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] lg:min-h-[600px] lg:p-8'
-          : 'min-h-[430px] border-[#cfe8ef]/80 bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] lg:min-h-[500px]',
+          ? 'min-h-[500px] border-[#9ccbd8]/60 bg-gradient-to-b from-white/90 to-[#E7F6FB]/40 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] lg:min-h-[600px] lg:p-8'
+          : 'min-h-[430px] border-[#B7E3F2]/80 bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] lg:min-h-[500px]',
       ].join(' ')}
     >
-      <div className="mb-4 flex items-center gap-2 text-[#248eb1]">
+      <div className="mb-4 flex items-center gap-2 text-[#147BA6]">
         {eyebrow === 'Personal AI agent' ? (
           <Bot size={16} strokeWidth={2.3} aria-hidden="true" />
         ) : eyebrow === 'Personal stats' ? (
@@ -288,7 +288,7 @@ function FeatureCard({
         ) : (
           <Gamepad2 size={16} strokeWidth={2.3} aria-hidden="true" />
         )}
-        <p className="text-[11px] font-bold uppercase tracking-[0.16em] transition-colors duration-300 group-hover:text-[#5dc8ea]">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] transition-colors duration-300 group-hover:text-[#2498C7]">
           {eyebrow}
         </p>
       </div>
@@ -355,7 +355,7 @@ export default function KeyFeaturesSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-44 top-28 h-[30rem] w-[30rem] rounded-full bg-[#dbf4f8]/50 blur-[140px]"
+        className="pointer-events-none absolute -right-44 top-28 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/50 blur-[140px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
@@ -363,7 +363,7 @@ export default function KeyFeaturesSection() {
           delay={0}
           className="mx-auto max-w-[980px] text-center"
         >
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
             KEY FEATURES
           </p>
           <h2

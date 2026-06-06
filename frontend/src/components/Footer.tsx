@@ -21,7 +21,7 @@ function FooterLogo() {
           className="relative z-10 flex shrink-0 flex-col items-start py-0.5 leading-none tracking-[-0.02em]"
       >
         {/* "Talk" - Kept at your original 20px size with a solid, vibrant blue/cyan gradient */}
-        <span className="relative z-10 block bg-gradient-to-r from-[#38bdf8] to-[#9ddfee] bg-clip-text text-[20px] font-black leading-none text-transparent">
+        <span className="relative z-10 block bg-gradient-to-r from-[#2498C7] to-[#B7E3F2] bg-clip-text text-[20px] font-black leading-none text-transparent">
     Talk
   </span>
 
@@ -45,7 +45,7 @@ function FooterLinkList({
 }) {
   return (
     <div>
-      <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-[#248eb1]">
+      <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-[#147BA6]">
         {title}
       </p>
       <ul className="grid gap-3">
@@ -53,7 +53,7 @@ function FooterLinkList({
           <li key={link.label}>
             <a
               href={link.href}
-              className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#101820]/62 transition-colors hover:text-[#248eb1]"
+              className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#101820]/62 transition-colors hover:text-[#147BA6]"
             >
               {link.label}
               <ArrowRight
@@ -73,7 +73,7 @@ function FooterLinkList({
 export default function Footer() {
   return (
     <footer className="relative bg-[#f7fbfc] px-6 pb-10 pt-8 text-[#071014] sm:px-8 lg:px-[56px] xl:px-[90px]">
-      <div className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-[#cfe8ef]/80 pt-10">
+      <div className="relative z-10 mx-auto w-full max-w-[1500px] border-t border-[#B7E3F2]/80 pt-10">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
           <div className="max-w-[440px]">
             <FooterLogo />
@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-[#cfe8ef]/80 pt-6 text-[13px] font-medium text-[#101820]/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-[#B7E3F2]/80 pt-6 text-[13px] font-medium text-[#101820]/45 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; 2026 TalkTrack. All rights reserved.</p>
           <p>Built for private personal tracking.</p>
         </div>

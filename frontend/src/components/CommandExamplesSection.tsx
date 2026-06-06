@@ -90,7 +90,7 @@ export default function CommandExamplesSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-[#dbf4f8]/45 blur-[140px]"
+        className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/45 blur-[140px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
@@ -98,7 +98,7 @@ export default function CommandExamplesSection() {
           delay={0}
           className="mx-auto max-w-[980px] text-center"
         >
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
             WHAT YOU CAN TRACK
           </p>
           <h2
@@ -122,8 +122,8 @@ export default function CommandExamplesSection() {
                 isVisible={isVisible}
                 delay={120 + index * 70}
               >
-                <article className="group flex h-full min-h-[220px] flex-col rounded-[24px] border border-[#cfe8ef]/80 bg-white/75 p-6 text-left shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] backdrop-blur-sm transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#5dc8ea]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(93,200,234,0.42)] sm:p-7">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-[#5dc8ea]/35 bg-[#dbf4f8]/70 text-[#248eb1] transition-colors group-hover:border-[#5dc8ea]/70 group-hover:bg-[#dbf4f8]">
+                <article className="group flex h-full min-h-[220px] flex-col rounded-[24px] border border-[#B7E3F2]/80 bg-white/75 p-6 text-left shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] backdrop-blur-sm transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#2498C7]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(36,152,199,0.42)] sm:p-7">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-[#2498C7]/35 bg-[#E7F6FB]/70 text-[#147BA6] transition-colors group-hover:border-[#2498C7]/70 group-hover:bg-[#E7F6FB]">
                     <Icon
                       size={18}
                       strokeWidth={2.3}

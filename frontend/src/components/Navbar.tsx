@@ -35,7 +35,7 @@ export default function Navbar() {
             className="relative z-10 flex shrink-0 flex-col items-start py-0.5 leading-none tracking-[-0.02em]"
         >
           {/* "Talk" - Kept at your original 20px size with a solid, vibrant blue/cyan gradient */}
-          <span className="relative z-10 block bg-gradient-to-r from-[#38bdf8] to-[#9ddfee] bg-clip-text text-[20px] font-black leading-none text-transparent">
+          <span className="relative z-10 block bg-gradient-to-r from-[#2498C7] to-[#B7E3F2] bg-clip-text text-[20px] font-black leading-none text-transparent">
     Talk
   </span>
 
@@ -54,7 +54,7 @@ export default function Navbar() {
             <li key={l.label}>
               <a
                 href={l.href}
-                className="whitespace-nowrap text-[14px] font-medium tracking-[0.01em] text-[#050708]/80 transition-colors hover:text-[#248eb1]"
+                className="whitespace-nowrap text-[14px] font-medium tracking-[0.01em] text-[#050708]/80 transition-colors hover:text-[#147BA6]"
               >
                 {l.label}
               </a>
@@ -66,7 +66,7 @@ export default function Navbar() {
         <div className="relative z-10 flex items-center gap-2.5">
           <a
             href="/waitlist"
-            className="inline-flex min-h-10 items-center justify-center rounded-[12px] border border-[#050708]/85 bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] px-5 text-[12px] font-semibold tracking-[0.04em] text-[#050708] shadow-[0_12px_28px_-24px_rgba(31,112,145,0.7)] transition-[border-color,transform] duration-200 hover:scale-[1.03] hover:border-[#5dc8ea] sm:px-8 sm:text-[13px]"
+            className="inline-flex min-h-10 items-center justify-center rounded-[12px] border border-[#050708]/85 bg-gradient-to-r from-[#2498C7] to-[#147BA6] px-5 text-[12px] font-semibold tracking-[0.04em] text-white shadow-[0_12px_28px_-24px_rgba(31,112,145,0.7)] transition-[border-color,transform] duration-200 hover:scale-[1.03] hover:border-[#147BA6] sm:px-8 sm:text-[13px]"
           >
             I Need This
           </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="grid h-10 w-10 place-items-center rounded-full border border-[#050708]/15 text-[#050708] transition-colors hover:border-[#5dc8ea]/70 hover:bg-[#dbf4f8]/50 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-[#050708]/15 text-[#050708] transition-colors hover:border-[#2498C7]/70 hover:bg-[#E7F6FB]/50 lg:hidden"
           >
             <span className="relative block h-[14px] w-[18px]">
               <span
@@ -118,7 +118,7 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 tabIndex={open ? 0 : -1}
-                className="block rounded-2xl px-4 py-3 text-[16px] font-medium text-[#050708]/80 transition-colors hover:bg-[#dbf4f8]/65 hover:text-[#248eb1]"
+                className="block rounded-2xl px-4 py-3 text-[16px] font-medium text-[#050708]/80 transition-colors hover:bg-[#E7F6FB]/65 hover:text-[#147BA6]"
               >
                 {l.label}
               </a>

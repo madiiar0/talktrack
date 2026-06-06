@@ -95,8 +95,8 @@ function FaqItem({
         className={[
           'overflow-hidden rounded-[22px] border bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.34)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300',
           isOpen
-            ? 'border-[#5dc8ea]/60 bg-[#fafdff]'
-            : 'border-[#cfe8ef]/80 hover:border-[#5dc8ea]/45 hover:bg-[#fafdff]',
+            ? 'border-[#2498C7]/60 bg-[#fafdff]'
+            : 'border-[#B7E3F2]/80 hover:border-[#2498C7]/45 hover:bg-[#fafdff]',
         ].join(' ')}
       >
         <button
@@ -114,8 +114,8 @@ function FaqItem({
             className={[
               'grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-colors duration-300',
               isOpen
-                ? 'border-[#5dc8ea]/50 bg-[#dbf4f8] text-[#248eb1]'
-                : 'border-[#cfe8ef] text-[#101820]/50',
+                ? 'border-[#2498C7]/50 bg-[#E7F6FB] text-[#147BA6]'
+                : 'border-[#B7E3F2] text-[#101820]/50',
             ].join(' ')}
           >
             {isOpen ? <Minus size={16} strokeWidth={2.6} /> : <Plus size={16} strokeWidth={2.6} />}
@@ -180,7 +180,7 @@ export default function FaqSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-44 top-20 h-[30rem] w-[30rem] rounded-full bg-[#dbf4f8]/45 blur-[140px]"
+        className="pointer-events-none absolute -right-44 top-20 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/45 blur-[140px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
@@ -188,7 +188,7 @@ export default function FaqSection() {
           delay={0}
           className="mx-auto max-w-[920px] text-center"
         >
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
             FAQ
           </p>
           <h2

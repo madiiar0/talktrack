@@ -105,13 +105,13 @@ export default function WaitlistPage() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 bottom-24 h-[30rem] w-[30rem] rounded-full bg-[#dbf4f8]/55 blur-[140px]"
+        className="pointer-events-none absolute -right-40 bottom-24 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/55 blur-[140px]"
       />
       <main className="relative z-10 flex min-h-screen px-6 py-8 sm:px-8 lg:px-[56px] xl:px-[90px]">
         <div className="mx-auto flex w-full max-w-[1180px] flex-col">
           <a
             href="/"
-            className="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#cfe8ef]/80 bg-white/70 px-4 py-2 text-[14px] font-semibold text-[#101820]/62 shadow-[0_12px_32px_-28px_rgba(35,96,118,0.34)] backdrop-blur-sm transition-colors hover:border-[#5dc8ea]/60 hover:text-[#248eb1]"
+            className="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-[#B7E3F2]/80 bg-white/70 px-4 py-2 text-[14px] font-semibold text-[#101820]/62 shadow-[0_12px_32px_-28px_rgba(35,96,118,0.34)] backdrop-blur-sm transition-colors hover:border-[#2498C7]/60 hover:text-[#147BA6]"
           >
             <ArrowLeft size={16} strokeWidth={2.5} aria-hidden="true" />
             Back to landing page
@@ -119,7 +119,7 @@ export default function WaitlistPage() {
 
           <div className="grid flex-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="max-w-[620px]">
-              <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+              <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
                 EARLY ACCESS
               </p>
               <h1
@@ -135,11 +135,11 @@ export default function WaitlistPage() {
             </div>
 
             {status === 'success' ? (
-              <div className="rounded-[28px] border border-[#cfe8ef]/90 bg-white/80 p-6 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] backdrop-blur-sm sm:p-8">
-                <div className="mb-6 grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-[#5dc8ea] to-[#dbf4f8] text-[#071014]">
+              <div className="rounded-[28px] border border-[#B7E3F2]/90 bg-white/80 p-6 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] backdrop-blur-sm sm:p-8">
+                <div className="mb-6 grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-[#2498C7] to-[#B7E3F2] text-[#071014]">
                   <CheckCircle2 size={28} strokeWidth={2.6} aria-hidden="true" />
                 </div>
-                <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+                <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
                   Request sent
                 </p>
                 <h2
@@ -153,7 +153,7 @@ export default function WaitlistPage() {
                 </p>
                 <a
                   href="/"
-                  className="mt-7 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] px-7 text-[13px] font-bold uppercase tracking-[0.05em] text-[#050708] shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[#5dc8ea] hover:shadow-[0_18px_42px_-30px_rgba(93,200,234,0.72)]"
+                  className="mt-7 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#2498C7] to-[#147BA6] px-7 text-[13px] font-bold uppercase tracking-[0.05em] text-white shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[#147BA6] hover:shadow-[0_18px_42px_-30px_rgba(36,152,199,0.72)]"
                 >
                   <ArrowLeft size={16} strokeWidth={2.6} aria-hidden="true" />
                   Back to landing page
@@ -162,7 +162,7 @@ export default function WaitlistPage() {
             ) : (
             <form
               onSubmit={handleSubmit}
-              className="rounded-[28px] border border-[#cfe8ef]/90 bg-white/80 p-5 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] backdrop-blur-sm sm:p-7"
+              className="rounded-[28px] border border-[#B7E3F2]/90 bg-white/80 p-5 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] backdrop-blur-sm sm:p-7"
             >
               <div className="grid gap-5">
                 <label className="grid gap-2">
@@ -176,7 +176,7 @@ export default function WaitlistPage() {
                     onChange={(event) => setName(event.target.value)}
                     placeholder="Your name"
                     maxLength={120}
-                    className="min-h-[52px] rounded-[16px] border border-[#cfe8ef] bg-[#fafdff] px-4 text-[15px] font-medium text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#5dc8ea] focus:shadow-[0_0_0_4px_rgba(93,200,234,0.16)]"
+                    className="min-h-[52px] rounded-[16px] border border-[#B7E3F2] bg-[#fafdff] px-4 text-[15px] font-medium text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#2498C7] focus:shadow-[0_0_0_4px_rgba(36,152,199,0.16)]"
                   />
                 </label>
 
@@ -191,7 +191,7 @@ export default function WaitlistPage() {
                   onChange={(event) => setContact(event.target.value)}
                   placeholder="Your Email or Phone"
                   maxLength={160}
-                  className="min-h-[52px] rounded-[16px] border border-[#cfe8ef] bg-[#fafdff] px-4 text-[15px] font-medium text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#5dc8ea] focus:shadow-[0_0_0_4px_rgba(93,200,234,0.16)]"
+                  className="min-h-[52px] rounded-[16px] border border-[#B7E3F2] bg-[#fafdff] px-4 text-[15px] font-medium text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#2498C7] focus:shadow-[0_0_0_4px_rgba(36,152,199,0.16)]"
                 />
               </label>
 
@@ -208,8 +208,8 @@ export default function WaitlistPage() {
                       className={[
                         'min-h-[44px] rounded-full border px-3 text-[13px] font-bold transition-[border-color,background-color,color,box-shadow]',
                         selectedPrice === option
-                          ? 'border-[#5dc8ea] bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] text-[#050708] shadow-[0_12px_28px_-24px_rgba(31,112,145,0.7)]'
-                          : 'border-[#cfe8ef] bg-white/70 text-[#101820]/62 hover:border-[#5dc8ea]/60 hover:text-[#248eb1]',
+                          ? 'border-[#147BA6] bg-gradient-to-r from-[#2498C7] to-[#147BA6] text-white shadow-[0_12px_28px_-24px_rgba(31,112,145,0.7)]'
+                          : 'border-[#B7E3F2] bg-white/70 text-[#101820]/62 hover:border-[#2498C7]/60 hover:text-[#147BA6]',
                       ].join(' ')}
                     >
                       {option}
@@ -224,7 +224,7 @@ export default function WaitlistPage() {
                     onChange={(event) => setCustomPrice(event.target.value)}
                     placeholder="Example: $10/month"
                     maxLength={80}
-                    className="min-h-[52px] rounded-[16px] border border-[#cfe8ef] bg-[#fafdff] px-4 text-[15px] font-medium text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#5dc8ea] focus:shadow-[0_0_0_4px_rgba(93,200,234,0.16)]"
+                    className="min-h-[52px] rounded-[16px] border border-[#B7E3F2] bg-[#fafdff] px-4 text-[15px] font-medium text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#2498C7] focus:shadow-[0_0_0_4px_rgba(36,152,199,0.16)]"
                   />
                 ) : null}
               </fieldset>
@@ -239,14 +239,14 @@ export default function WaitlistPage() {
                   placeholder="What would you want TalkTrack to track first?"
                   maxLength={2000}
                   rows={5}
-                  className="min-h-[132px] resize-y rounded-[16px] border border-[#cfe8ef] bg-[#fafdff] px-4 py-3 text-[15px] font-medium leading-[1.5] text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#5dc8ea] focus:shadow-[0_0_0_4px_rgba(93,200,234,0.16)]"
+                  className="min-h-[132px] resize-y rounded-[16px] border border-[#B7E3F2] bg-[#fafdff] px-4 py-3 text-[15px] font-medium leading-[1.5] text-[#071014] outline-none transition-[border-color,box-shadow] placeholder:text-[#101820]/35 focus:border-[#2498C7] focus:shadow-[0_0_0_4px_rgba(36,152,199,0.16)]"
                 />
               </label>
 
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="mt-1 inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] px-6 text-[14px] font-bold uppercase tracking-[0.05em] text-[#050708] shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow,opacity] duration-200 hover:-translate-y-0.5 hover:border-[#5dc8ea] hover:shadow-[0_18px_42px_-30px_rgba(93,200,234,0.72)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                className="mt-1 inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#2498C7] to-[#147BA6] px-6 text-[14px] font-bold uppercase tracking-[0.05em] text-white shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow,opacity] duration-200 hover:-translate-y-0.5 hover:border-[#147BA6] hover:shadow-[0_18px_42px_-30px_rgba(36,152,199,0.72)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
               >
                 {status === 'submitting' ? (
                   <LoaderCircle

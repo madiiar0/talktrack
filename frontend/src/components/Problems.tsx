@@ -68,15 +68,15 @@ export default function Problems() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-[#dbf4f8]/55 blur-[120px]"
+        className="pointer-events-none absolute -left-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-[#E7F6FB]/55 blur-[120px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 bottom-0 h-[34rem] w-[34rem] rounded-full bg-[#5dc8ea]/20 blur-[150px]"
+        className="pointer-events-none absolute -right-40 bottom-0 h-[34rem] w-[34rem] rounded-full bg-[#2498C7]/20 blur-[150px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <div className="mx-auto max-w-[900px] text-center">
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
             THE PROBLEM
           </p>
           <h2
@@ -101,16 +101,16 @@ export default function Problems() {
                   : '0ms',
               }}
               className={[
-                'group relative overflow-hidden rounded-[24px] border border-[#cfe8ef]/80 bg-white/75 p-6 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.42)] backdrop-blur-sm transition-[opacity,transform,border-color,background-color,box-shadow] duration-[560ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none hover:-translate-y-1 hover:border-[#5dc8ea]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(93,200,234,0.42)]',
+                'group relative overflow-hidden rounded-[24px] border border-[#B7E3F2]/80 bg-white/75 p-6 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.42)] backdrop-blur-sm transition-[opacity,transform,border-color,background-color,box-shadow] duration-[560ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none hover:-translate-y-1 hover:border-[#2498C7]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(36,152,199,0.42)]',
                 hasRevealed
                   ? 'translate-y-0 scale-100 opacity-100'
                   : 'translate-y-6 scale-[0.96] opacity-0',
                 index < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
               ].join(' ')}
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5dc8ea]/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2498C7]/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="mb-7 flex items-center justify-between gap-4">
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#5dc8ea]/35 bg-[#dbf4f8]/70 text-[13px] font-bold text-[#248eb1] transition-colors duration-300 group-hover:border-[#5dc8ea]/70 group-hover:bg-[#dbf4f8]">
+                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#2498C7]/35 bg-[#E7F6FB]/70 text-[13px] font-bold text-[#147BA6] transition-colors duration-300 group-hover:border-[#2498C7]/70 group-hover:bg-[#E7F6FB]">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>

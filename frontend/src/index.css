@@ -43,7 +43,7 @@ body {
 }
 
 ::selection {
-  background: rgba(93, 200, 234, 0.32);
+  background: rgba(36, 152, 199, 0.3);
   color: #050708;
 }
 
@@ -70,6 +70,24 @@ body {
   }
 }
 
+@keyframes phone-scroll-arrow {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  32%,
+  58% {
+    opacity: 0.72;
+    transform: translateY(0);
+  }
+  78%,
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 .reveal {
   animation: reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -79,6 +97,10 @@ body {
   animation-delay: 0.34s;
 }
 
+.phone-scroll-arrow {
+  animation: phone-scroll-arrow 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -86,7 +108,12 @@ body {
 
   .animate-blink,
   .reveal,
-  .reveal-chart {
+  .reveal-chart,
+  .phone-scroll-arrow {
     animation: none !important;
+  }
+
+  .phone-scroll-hint {
+    opacity: 0.68;
   }
 }

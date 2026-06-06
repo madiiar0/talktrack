@@ -34,7 +34,7 @@ export default function Hero() {
             >
               <a
                 href="/waitlist"
-                className="flex h-[58px] w-full items-center justify-center rounded-[18px] border border-[#0b0b0b]/80 bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] px-8 text-[clamp(17px,1.08vw,22px)] font-semibold tracking-[0.02em] text-[#050708] shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#5dc8ea] hover:shadow-[0_18px_42px_-30px_rgba(93,200,234,0.72)] active:translate-y-0 sm:h-[64px]"
+                className="flex h-[58px] w-full items-center justify-center rounded-[18px] border border-[#0b0b0b]/80 bg-gradient-to-r from-[#2498C7] to-[#147BA6] px-8 text-[clamp(17px,1.08vw,22px)] font-semibold tracking-[0.02em] text-white shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#147BA6] hover:shadow-[0_18px_42px_-30px_rgba(36,152,199,0.72)] active:translate-y-0 sm:h-[64px]"
               >
                 Get Early Access
               </a>
