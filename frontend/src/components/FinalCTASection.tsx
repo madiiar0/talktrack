@@ -36,8 +36,8 @@ function Reveal({
 
 function WaitlistPill() {
   return (
-    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-[13px] font-bold text-white/70 backdrop-blur-md sm:text-[14px]">
-      <Users size={15} strokeWidth={2.4} aria-hidden="true" className="shrink-0 text-mint" />
+    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#cfe8ef] bg-white/75 px-4 py-2 text-[13px] font-semibold text-[#101820]/68 backdrop-blur-sm sm:text-[14px]">
+      <Users size={15} strokeWidth={2.4} aria-hidden="true" className="shrink-0 text-[#248eb1]" />
       47 people are already on the waitlist.
     </div>
   )
@@ -73,37 +73,43 @@ export default function FinalCTASection() {
     <section
       ref={sectionRef}
       id="early-access"
-      className="relative px-6 py-28 sm:px-8 lg:px-[56px] lg:py-36 xl:px-[90px]"
+      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
-      <div className="relative z-10 mx-auto flex w-full max-w-[1180px] flex-col items-center text-center">
-        <Reveal isVisible={isVisible} delay={0}>
-          <p className="mb-5 text-[13px] font-extrabold uppercase tracking-[0.16em] text-mint">
-            GET EARLY ACCESS
-          </p>
-        </Reveal>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-12 bottom-0 h-52 rounded-full bg-[#5dc8ea]/12 blur-[100px]"
+      />
+      <div className="relative z-10 mx-auto w-full max-w-[1180px]">
+        <div className="overflow-hidden rounded-[34px] border border-[#cfe8ef]/90 bg-gradient-to-br from-white/90 via-[#fafdff]/90 to-[#dbf4f8]/50 px-6 py-14 text-center shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] backdrop-blur-sm sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+          <Reveal isVisible={isVisible} delay={0}>
+            <p className="mb-5 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+              GET EARLY ACCESS
+            </p>
+          </Reveal>
 
-        <Reveal isVisible={isVisible} delay={100}>
-          <h2 className="mx-auto max-w-[980px] text-[clamp(38px,5.4vw,86px)] font-black leading-[0.98] tracking-[-0.03em] text-white">
-            Build a personal AI memory for{' '}
-            <span className="bg-gradient-to-r from-mint to-mint-light bg-clip-text text-transparent">
-              your life.
-            </span>
-          </h2>
-        </Reveal>
+          <Reveal isVisible={isVisible} delay={100}>
+            <h2
+              className="mx-auto max-w-[980px] text-[clamp(42px,5.4vw,88px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
+              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+            >
+              Build a personal AI memory for your life.
+            </h2>
+          </Reveal>
 
-        <Reveal isVisible={isVisible} delay={210} className="mt-8">
-          <WaitlistPill />
-        </Reveal>
+          <Reveal isVisible={isVisible} delay={210} className="mt-8">
+            <WaitlistPill />
+          </Reveal>
 
-        <Reveal isVisible={isVisible} delay={320} className="mt-7">
-          <a
-            href="/waitlist"
-            className="inline-flex min-h-[56px] items-center justify-center rounded-full bg-gradient-to-r from-mint to-mint-light px-9 text-[14px] font-black uppercase tracking-[0.05em] text-black shadow-[0_14px_42px_-20px_rgba(36,255,174,0.55)] transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-22px_rgba(36,255,174,0.68)] active:translate-y-0 sm:min-h-[62px] sm:px-11 sm:text-[15px]"
-          >
-            JOIN EARLY ACCESS
-            <ArrowRight size={17} strokeWidth={2.6} aria-hidden="true" className="ml-2" />
-          </a>
-        </Reveal>
+          <Reveal isVisible={isVisible} delay={320} className="mt-7">
+            <a
+              href="/waitlist"
+              className="inline-flex min-h-[56px] items-center justify-center rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] px-9 text-[14px] font-bold uppercase tracking-[0.05em] text-[#050708] shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#5dc8ea] hover:shadow-[0_18px_42px_-30px_rgba(93,200,234,0.72)] active:translate-y-0 sm:min-h-[62px] sm:px-11 sm:text-[15px]"
+            >
+              JOIN EARLY ACCESS
+              <ArrowRight size={17} strokeWidth={2.6} aria-hidden="true" className="ml-2" />
+            </a>
+          </Reveal>
+        </div>
       </div>
     </section>
   )

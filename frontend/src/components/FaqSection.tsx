@@ -93,8 +93,10 @@ function FaqItem({
     <Reveal isVisible={isVisible} delay={120 + index * 70}>
       <div
         className={[
-          'overflow-hidden rounded-[20px] border bg-white/[0.045] backdrop-blur-md transition-colors duration-300',
-          isOpen ? 'border-mint/25' : 'border-white/10 hover:border-white/20',
+          'overflow-hidden rounded-[22px] border bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.34)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300',
+          isOpen
+            ? 'border-[#5dc8ea]/60 bg-[#fafdff]'
+            : 'border-[#cfe8ef]/80 hover:border-[#5dc8ea]/45 hover:bg-[#fafdff]',
         ].join(' ')}
       >
         <button
@@ -104,7 +106,7 @@ function FaqItem({
           onClick={onToggle}
           className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
         >
-          <span className="text-[16px] font-extrabold leading-[1.25] text-white sm:text-[18px]">
+          <span className="text-[16px] font-semibold leading-[1.25] text-[#071014] sm:text-[18px]">
             {question}
           </span>
           <span
@@ -112,8 +114,8 @@ function FaqItem({
             className={[
               'grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-colors duration-300',
               isOpen
-                ? 'border-mint/30 bg-mint/10 text-mint'
-                : 'border-white/10 text-white/70',
+                ? 'border-[#5dc8ea]/50 bg-[#dbf4f8] text-[#248eb1]'
+                : 'border-[#cfe8ef] text-[#101820]/50',
             ].join(' ')}
           >
             {isOpen ? <Minus size={16} strokeWidth={2.6} /> : <Plus size={16} strokeWidth={2.6} />}
@@ -130,7 +132,7 @@ function FaqItem({
           <div className="overflow-hidden">
             <p
               className={[
-                'px-5 pb-5 pr-14 text-[14px] font-medium leading-[1.65] text-white/65 transition-opacity duration-300 sm:px-6 sm:pb-6 sm:text-[15px]',
+                'px-5 pb-5 pr-14 text-[14px] font-medium leading-[1.68] text-[#101820]/65 transition-opacity duration-300 sm:px-6 sm:pb-6 sm:text-[15px]',
                 isOpen ? 'opacity-100' : 'opacity-0 motion-reduce:opacity-100',
               ].join(' ')}
             >
@@ -174,21 +176,28 @@ export default function FaqSection() {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative px-6 py-24 sm:px-8 lg:px-[56px] lg:py-32 xl:px-[90px]"
+      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
-      <div className="relative z-10 mx-auto w-full max-w-[1180px]">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-44 top-20 h-[30rem] w-[30rem] rounded-full bg-[#dbf4f8]/45 blur-[140px]"
+      />
+      <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
           isVisible={isVisible}
           delay={0}
           className="mx-auto max-w-[920px] text-center"
         >
-          <p className="mb-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-mint">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
             FAQ
           </p>
-          <h2 className="mx-auto max-w-[860px] text-[clamp(32px,4vw,62px)] font-black leading-[1] tracking-[-0.025em] text-white">
+          <h2
+            className="mx-auto max-w-[920px] text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
+            style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+          >
             Questions before your AI starts tracking.
           </h2>
-          <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.12vw,20px)] font-medium leading-[1.55] text-white/70">
+          <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
             Everything you need to know about natural-language tracking,
             personal memory, privacy, and asking questions about your own data.
           </p>

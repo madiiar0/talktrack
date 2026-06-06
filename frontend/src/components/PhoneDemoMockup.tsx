@@ -38,7 +38,7 @@ type Tracker = {
   enabled: boolean
 }
 
-const BADGE_SRC = '/assets/badges/iron/iron2.png'
+const BADGE_SRC = '/assets/badges/platinum/platinum2.png'
 const TRACKING_EXP = 210
 const TRACKING_MAX_EXP = 300
 const RING_RADIUS = 52
@@ -90,11 +90,11 @@ function PhoneHeader({
 }) {
   return (
     <div className="px-4 pt-3.5">
-      <h2 className="text-[22px] font-bold leading-none tracking-[-0.03em] text-white">
+      <h2 className="text-[22px] font-bold leading-none tracking-[-0.03em] text-[#071014]">
         {title}
       </h2>
       {subtitle ? (
-        <p className="mt-1.5 text-[11px] font-medium leading-snug text-white/48">
+        <p className="mt-1.5 text-[11px] font-medium leading-snug text-[#101820]/50">
           {subtitle}
         </p>
       ) : null}
@@ -115,8 +115,8 @@ function ChatBubble({
       className={[
         'max-w-[88%] rounded-[15px] px-3.5 py-2.5 text-[11px] font-medium leading-[1.55]',
         isUser
-          ? 'ml-auto rounded-tr-[5px] border border-[#303030] bg-white/[0.055] text-white/84'
-          : 'mr-auto rounded-tl-[5px] border border-[#303833] bg-white/[0.045] text-white/76',
+          ? 'ml-auto rounded-tr-[5px] border border-[#b8dce5]/80 bg-[#fafdff] text-[#071014]/82 shadow-[0_10px_26px_-24px_rgba(35,96,118,0.38)]'
+          : 'mr-auto rounded-tl-[5px] border border-[#d5e8ee] bg-[#eef7fa] text-[#101820]/74',
       ].join(' ')}
     >
       {children}
@@ -134,17 +134,17 @@ function StructuredBlock({
   children?: ReactNode
 }) {
   return (
-    <div className="mt-3 border-t border-[#2f3a35] pt-3">
+    <div className="mt-3 border-t border-[#d8e3e7] pt-3">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-mint">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[#248eb1]">
             {title}
           </p>
-          <p className="mt-0.5 text-[12px] font-semibold leading-tight text-white/90">
+          <p className="mt-0.5 text-[12px] font-semibold leading-tight text-[#071014]/86">
             {subtitle}
           </p>
         </div>
-        <span className="h-2.5 w-2.5 rounded-full bg-mint/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#5dc8ea]" />
       </div>
       {children ? <div className="mt-3">{children}</div> : null}
     </div>
@@ -178,27 +178,27 @@ function MoodLineChart() {
             x2="116"
             y1={y}
             y2={y}
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(16,24,32,0.10)"
             strokeWidth="1"
           />
         ))}
         <polyline
           points={line}
           fill="none"
-          stroke="#24ffae"
+          stroke="#5dc8ea"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d={`M${line} L114 56 L6 56 Z`}
-          fill="rgba(36,255,174,0.08)"
+          fill="rgba(93,200,234,0.16)"
         />
         {points.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#afffe2" />
+          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#248eb1" />
         ))}
       </svg>
-      <div className="mt-1 grid grid-cols-7 text-center text-[8px] font-medium text-white/34">
+      <div className="mt-1 grid grid-cols-7 text-center text-[8px] font-medium text-[#101820]/40">
         {['1', '5', '10', '15', '20', '25', '30'].map((label) => (
           <span key={label}>{label}</span>
         ))}
@@ -213,12 +213,12 @@ function MiniBars() {
 
   return (
     <div
-      className="relative flex h-[62px] items-end gap-1.5 rounded-[13px] bg-black/12 px-2.5 py-2"
+      className="relative flex h-[62px] items-end gap-1.5 rounded-[13px] bg-[#eaf3f6] px-2.5 py-2"
       aria-label="Seven day productivity score chart"
     >
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-2.5 right-2.5 border-t border-dashed border-white/18"
+        className="pointer-events-none absolute left-2.5 right-2.5 border-t border-dashed border-[#90bdcb]/65"
         style={{ bottom: `${average}%` }}
       />
       {bars.map((height, index) => (
@@ -226,10 +226,10 @@ function MiniBars() {
           key={index}
           aria-hidden="true"
           className={[
-            'relative z-10 min-w-0 flex-1 rounded-t-[4px] border border-white/[0.025]',
+            'relative z-10 min-w-0 flex-1 rounded-t-[4px] border border-white/70',
             index === bars.length - 1
-              ? 'bg-gradient-to-t from-mint/70 to-mint-light/75'
-              : 'bg-white/[0.18]',
+              ? 'bg-gradient-to-t from-[#5dc8ea] to-[#dbf4f8]'
+              : 'bg-[#b8d8e0]',
           ].join(' ')}
           style={{ height: `${height}%` }}
         />
@@ -248,24 +248,24 @@ function StatusControlCard({
   const percent = ((value - 1) / 9) * 100
 
   return (
-    <div className="mt-3 border-t border-[#2f3a35] pt-3">
+    <div className="mt-3 border-t border-[#d8e3e7] pt-3">
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-white/42">
+        <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[#101820]/48">
           Anxiety check-in
         </span>
-        <span className="rounded-full bg-white/[0.055] px-2 py-0.5 text-[9px] font-semibold text-mint/90">
+        <span className="rounded-full border border-[#cde6ee] bg-white/70 px-2 py-0.5 text-[9px] font-semibold text-[#248eb1]">
           Level {value}/10
         </span>
       </div>
       <div className="flex items-center gap-2">
-        <span className="text-[10px] font-medium text-white/38">Low</span>
-        <div className="relative h-2 flex-1 rounded-full bg-white/10">
+        <span className="text-[10px] font-medium text-[#101820]/42">Low</span>
+        <div className="relative h-2 flex-1 rounded-full bg-[#d8e3e7]">
           <span
-            className="absolute left-0 top-0 h-full rounded-full bg-mint/65"
+            className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8]"
             style={{ width: `${percent}%` }}
           />
           <span
-            className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#3f3f3f] bg-[#d9fff0]"
+            className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#9ccbd8] bg-white shadow-[0_1px_4px_rgba(35,96,118,0.24)]"
             style={{ left: `${percent}%` }}
           />
           <input
@@ -279,7 +279,7 @@ function StatusControlCard({
             className="absolute inset-x-0 top-1/2 h-7 -translate-y-1/2 cursor-pointer opacity-0"
           />
         </div>
-        <span className="text-[10px] font-medium text-white/38">High</span>
+        <span className="text-[10px] font-medium text-[#101820]/42">High</span>
       </div>
     </div>
   )
@@ -304,7 +304,7 @@ function MainDemoScreen() {
           </StructuredBlock>
         </ChatBubble>
 
-        <div className="mx-auto w-fit rounded-full border border-[#303030] bg-white/[0.045] px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/42">
+        <div className="mx-auto w-fit rounded-full border border-[#d5e8ee] bg-white/70 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-[#101820]/45">
           Today, 2:30 PM
         </div>
 
@@ -317,7 +317,7 @@ function MainDemoScreen() {
           <StructuredBlock title="Tracker active" subtitle="Anxiety Levels" />
         </ChatBubble>
 
-        <div className="mx-auto w-fit rounded-full border border-[#303030] bg-white/[0.045] px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/42">
+        <div className="mx-auto w-fit rounded-full border border-[#d5e8ee] bg-white/70 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-[#101820]/45">
           Later today
         </div>
 
@@ -341,14 +341,14 @@ function MainDemoScreen() {
           <MoodLineChart />
         </ChatBubble>
       </div>
-      <div className="mx-4 mb-3 flex items-center gap-2 rounded-full border border-[#303030] bg-white/[0.05] p-2 shadow-[0_12px_30px_-32px_rgba(0,0,0,0.9)]">
-        <span className="grid h-7 w-7 place-items-center rounded-full border border-[#333333] text-white/40">
+      <div className="mx-4 mb-3 flex items-center gap-2 rounded-full border border-[#cfe8ef] bg-white/80 p-2 shadow-[0_12px_30px_-28px_rgba(35,96,118,0.26)]">
+        <span className="hidden">
           <MessageSquare size={14} strokeWidth={2.4} aria-hidden="true" />
         </span>
-        <p className="min-w-0 flex-1 text-[12px] font-medium text-white/38">
+        <p className="min-w-0 flex-1 text-[12px] font-medium text-[#101820]/42 ml-2">
           Type or speak...
         </p>
-        <span className="grid h-8 w-8 place-items-center rounded-full bg-mint text-black">
+        <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-[#5dc8ea] to-[#dbf4f8] text-[#071014]">
           <Mic size={15} strokeWidth={2.8} aria-hidden="true" />
         </span>
       </div>
@@ -364,9 +364,9 @@ function MetricRow({
   value: string
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[12px] border border-[#303030] bg-black/14 px-3 py-2">
-      <span className="text-[11px] font-medium text-white/52">{label}</span>
-      <span className="text-[12px] font-semibold text-white/88">{value}</span>
+    <div className="flex items-center justify-between rounded-[12px] border border-[#d5e8ee] bg-white/72 px-3 py-2">
+      <span className="text-[11px] font-medium text-[#101820]/56">{label}</span>
+      <span className="text-[12px] font-semibold text-[#071014]/86">{value}</span>
     </div>
   )
 }
@@ -376,15 +376,15 @@ function LogsDemoScreen() {
     <div className="h-full overflow-y-auto pb-3">
       <PhoneHeader title="Life Log" subtitle="Review your daily patterns." />
       <div className="mt-4 space-y-3 px-4">
-        <div className="rounded-[18px] border border-[#303030] bg-white/[0.04] p-3.5">
+        <div className="rounded-[18px] border border-[#cfe8ef] bg-white/76 p-3.5">
           <div className="mb-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <CalendarDays size={15} className="text-mint" strokeWidth={2.5} />
-              <p className="text-[12px] font-semibold text-white">June 2026</p>
+              <CalendarDays size={15} className="text-[#248eb1]" strokeWidth={2.5} />
+              <p className="text-[12px] font-semibold text-[#071014]">June 2026</p>
             </div>
-            <p className="text-[10px] font-medium text-white/38">7 day streak</p>
+            <p className="text-[10px] font-medium text-[#101820]/45">7 day streak</p>
           </div>
-          <div className="grid grid-cols-7 gap-1 text-center text-[9px] font-semibold uppercase tracking-[0.08em] text-white/34">
+          <div className="grid grid-cols-7 gap-1 text-center text-[9px] font-semibold uppercase tracking-[0.08em] text-[#101820]/42">
             {DAYS.map((day, index) => (
               <span key={`${day}-${index}`}>{day}</span>
             ))}
@@ -409,10 +409,10 @@ function LogsDemoScreen() {
                   className={[
                     'grid h-7 place-items-center rounded-[9px] text-[10px] font-semibold',
                     selected
-                      ? 'bg-mint text-black'
+                      ? 'bg-[#5dc8ea] text-[#071014]'
                       : active
-                        ? 'bg-mint/10 text-mint'
-                        : 'bg-white/[0.04] text-white/38',
+                        ? 'bg-[#dbf4f8] text-[#248eb1]'
+                        : 'bg-[#eef4f6] text-[#101820]/42',
                   ].join(' ')}
                 >
                   {day}
@@ -422,11 +422,11 @@ function LogsDemoScreen() {
           </div>
         </div>
 
-        <div className="rounded-[18px] border border-[#2b3a34] bg-mint/[0.055] p-3.5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-mint">
+        <div className="rounded-[18px] border border-[#b9dfe8] bg-[#dbf4f8]/60 p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[#248eb1]">
             Daily summary
           </p>
-          <p className="mt-2 text-[12px] font-medium leading-[1.5] text-white/72">
+          <p className="mt-2 text-[12px] font-medium leading-[1.5] text-[#101820]/70">
             Strong focus day. Mood stayed steady after a workout and longer sleep.
           </p>
         </div>
@@ -453,7 +453,7 @@ function ProgressBadge() {
             cy="60"
             r={RING_RADIUS}
             fill="none"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="#d8e3e7"
             strokeWidth="7"
           />
           <circle
@@ -461,7 +461,7 @@ function ProgressBadge() {
             cy="60"
             r={RING_RADIUS}
             fill="none"
-            stroke="#24ffae"
+            stroke="#5dc8ea"
             strokeWidth="7"
             strokeLinecap="round"
             strokeDasharray={RING_CIRCUMFERENCE}
@@ -472,13 +472,13 @@ function ProgressBadge() {
         <img
           src={BADGE_SRC}
           alt=""
-          className="relative h-[106px] w-[106px] object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.45)]"
+          className="relative h-[106px] w-[106px] object-contain drop-shadow-[0_10px_18px_rgba(35,96,118,0.24)]"
         />
       </div>
-      <p className="text-[20px] font-bold tracking-[-0.03em] text-white">
+      <p className="text-[20px] font-bold tracking-[-0.03em] text-[#071014]">
         Level 12
       </p>
-      <p className="mt-1 text-[10px] font-semibold text-white/42">
+      <p className="mt-1 text-[10px] font-semibold text-[#101820]/48">
         {TRACKING_EXP} / {TRACKING_MAX_EXP} EXP
       </p>
     </div>
@@ -497,11 +497,11 @@ function TrackerRow({
   onToggle: () => void
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-[14px] border border-[#303030] bg-white/[0.035] px-3 py-2.5">
-      <span className="grid h-8 w-8 place-items-center rounded-full bg-white/[0.06] text-white/68">
+    <div className="flex items-center gap-3 rounded-[14px] border border-[#d5e8ee] bg-white/76 px-3 py-2.5">
+      <span className="grid h-8 w-8 place-items-center rounded-full bg-[#eef7fa] text-[#248eb1]">
         <Icon size={15} strokeWidth={2.4} aria-hidden="true" />
       </span>
-      <span className="min-w-0 flex-1 text-[12px] font-medium text-white/86">
+      <span className="min-w-0 flex-1 text-[12px] font-medium text-[#071014]/82">
         {name}
       </span>
       <button
@@ -511,11 +511,11 @@ function TrackerRow({
         aria-pressed={enabled}
         className={[
           'relative h-5 w-9 rounded-full transition-colors',
-          enabled ? 'bg-mint/70' : 'bg-[#353535]',
+          enabled ? 'bg-[#5dc8ea]' : 'bg-[#d8e3e7]',
         ].join(' ')}
       >
         <span
-          className="absolute top-[3px] h-3.5 w-3.5 rounded-full bg-[#d7d7d2] shadow-[0_1px_3px_rgba(0,0,0,0.35)]"
+          className="absolute top-[3px] h-3.5 w-3.5 rounded-full bg-white shadow-[0_1px_3px_rgba(35,96,118,0.28)]"
           style={{ left: enabled ? 18 : 3 }}
         />
       </button>
@@ -538,7 +538,7 @@ function TrackingDemoScreen() {
       <div className="mt-4 space-y-4 px-4">
         <ProgressBadge />
         <div>
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-mint">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#248eb1]">
             Active trackers
           </p>
           <div className="grid gap-2">
@@ -577,12 +577,12 @@ function SettingsRow({
         size={15}
         strokeWidth={2.4}
         aria-hidden="true"
-        className={danger ? 'text-red-300/85' : 'text-white/40'}
+        className={danger ? 'text-red-500/80' : 'text-[#101820]/42'}
       />
       <span
         className={[
           'min-w-0 flex-1 text-[11px] font-medium',
-          danger ? 'text-red-200/90' : 'text-white/62',
+          danger ? 'text-red-600/85' : 'text-[#101820]/62',
         ].join(' ')}
       >
         {label}
@@ -591,7 +591,7 @@ function SettingsRow({
         size={14}
         strokeWidth={2.4}
         aria-hidden="true"
-        className="text-white/25"
+        className="text-[#101820]/30"
       />
     </div>
   )
@@ -602,14 +602,14 @@ function AccountDemoScreen() {
     <div className="h-full overflow-y-auto pb-3">
       <div className="px-4 pt-4">
         <div className="flex items-center gap-3">
-          <div className="grid h-12 w-12 place-items-center text-white/62">
+          <div className="grid h-12 w-12 place-items-center text-[#248eb1]/75">
             <User size={30} strokeWidth={1.7} aria-hidden="true" />
           </div>
           <div className="min-w-0">
-            <h2 className="truncate text-[20px] font-bold leading-tight tracking-[-0.03em] text-white">
+            <h2 className="truncate text-[20px] font-bold leading-tight tracking-[-0.03em] text-[#071014]">
               Alex Rivera
             </h2>
-            <p className="truncate text-[11px] font-medium text-white/42">
+            <p className="truncate text-[11px] font-medium text-[#101820]/45">
               alex.rivera@example.com
             </p>
           </div>
@@ -617,7 +617,7 @@ function AccountDemoScreen() {
       </div>
 
       <div className="mt-5 px-4">
-        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-mint">
+        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#248eb1]">
           Account configuration
         </p>
         <div className="grid gap-0.5">
@@ -627,7 +627,7 @@ function AccountDemoScreen() {
         </div>
         <button
           type="button"
-          className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-[15px] border border-red-300/22 bg-red-400/[0.03] text-[12px] font-semibold text-red-100/86"
+          className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-[15px] border border-red-200 bg-red-50 text-[12px] font-semibold text-red-600"
         >
           <LogOut size={14} strokeWidth={2.4} aria-hidden="true" />
           Log out
@@ -645,7 +645,7 @@ function PhoneTabBar({
   onChange: (tab: TabId) => void
 }) {
   return (
-    <nav className="mx-3 mb-3 grid grid-cols-4 rounded-full border border-[#303030] bg-white/[0.045] p-1.5">
+    <nav className="mx-3 mb-3 grid grid-cols-4 rounded-full border border-[#cfe8ef] bg-white/80 p-1.5 shadow-[0_12px_30px_-28px_rgba(35,96,118,0.22)]">
       {TABS.map((tab) => {
         const Icon = tab.icon
         const active = activeTab === tab.id
@@ -656,7 +656,7 @@ function PhoneTabBar({
             onClick={() => onChange(tab.id)}
             className={[
               'flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-full px-1.5 py-1.5 transition-colors',
-              active ? 'bg-mint/12 text-mint' : 'text-white/38 hover:text-white/62',
+              active ? 'bg-[#dbf4f8] text-[#248eb1]' : 'text-[#101820]/42 hover:text-[#248eb1]',
             ].join(' ')}
           >
             <Icon size={15} strokeWidth={2.5} aria-hidden="true" />
@@ -680,18 +680,18 @@ export default function PhoneDemoMockup() {
 
   return (
     <div className="mx-auto w-full max-w-[286px] sm:max-w-[296px] xl:max-w-[304px]">
-      <div className="relative aspect-[9/19.5] rounded-[34px] border border-[#2c2c2c] bg-[#151515] p-2 shadow-[0_28px_72px_-58px_rgba(0,0,0,0.9)] sm:rounded-[42px] sm:p-2.5">
-        <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] border border-[#282828] bg-[#191919] text-white sm:rounded-[34px]">
+      <div className="relative aspect-[9/19.5] rounded-[34px] border border-[#050708]/80 bg-[#101214] p-2 shadow-[0_26px_70px_-54px_rgba(5,7,8,0.45)] sm:rounded-[42px] sm:p-2.5">
+        <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] border border-[#d5e8ee] bg-[#f7fbfc] text-[#071014] sm:rounded-[34px]">
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-3 z-20 h-5 w-[78px] -translate-x-1/2 rounded-full border border-white/[0.035] bg-black/70"
+            className="absolute left-1/2 top-3 z-20 h-5 w-[78px] -translate-x-1/2 rounded-full border border-black/70 bg-[#050708]"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent_26%)]"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.78),transparent_30%)]"
           />
 
-          <div className="relative z-10 flex items-center justify-between px-5 pt-4 text-[11px] font-semibold text-white/80 sm:px-6 sm:pt-5">
+          <div className="relative z-10 flex items-center justify-between px-5 pt-4 text-[11px] font-semibold text-[#071014]/72 sm:px-6 sm:pt-5">
             <span>9:41</span>
             <span>100%</span>
           </div>
@@ -705,7 +705,7 @@ export default function PhoneDemoMockup() {
           </div>
         </div>
       </div>
-      <p className="mt-4 text-center text-[clamp(12px,0.8vw,15px)] font-medium text-white/42">
+      <p className="mt-4 text-center text-[clamp(12px,0.8vw,15px)] font-medium text-[#101820]/45">
         Tap the tabs to preview the app.
       </p>
     </div>

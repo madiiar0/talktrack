@@ -155,7 +155,7 @@ export default function AnimatedRadarChart({
             key={lvl}
             points={poly([lvl, lvl, lvl, lvl, lvl])}
             fill="none"
-            stroke="rgba(255,255,255,0.3)"
+            stroke="rgba(156,203,216,0.42)"
             strokeWidth={1.2}
             strokeDasharray="4 5"
           />
@@ -171,19 +171,19 @@ export default function AnimatedRadarChart({
               y1={CY}
               x2={x}
               y2={y}
-              stroke="rgba(255,255,255,0.24)"
+              stroke="rgba(156,203,216,0.34)"
               strokeWidth={1.1}
               strokeDasharray="4 5"
             />
           )
         })}
 
-        {/* tertiary (subtle mint) polygon — sits furthest back */}
+        {/* tertiary polygon — sits furthest back */}
         <polygon
           ref={terRef}
           points={poly(TERTIARY[0])}
-          fill="rgba(175,255,226,0.055)"
-          stroke="rgba(175,255,226,0.52)"
+          fill="rgba(219,244,248,0.20)"
+          stroke="rgba(93,200,234,0.42)"
           strokeWidth={1.65}
           strokeLinejoin="round"
         />
@@ -192,8 +192,8 @@ export default function AnimatedRadarChart({
         <polygon
           ref={secRef}
           points={poly(SECONDARY[0])}
-          fill="rgba(36,255,174,0.06)"
-          stroke="rgba(36,255,174,0.45)"
+          fill="rgba(93,200,234,0.11)"
+          stroke="rgba(36,142,177,0.34)"
           strokeWidth={1.5}
           strokeLinejoin="round"
         />
@@ -202,11 +202,11 @@ export default function AnimatedRadarChart({
         <polygon
           ref={mainRef}
           points={poly(MAIN[0])}
-          fill="rgba(36,255,174,0.10)"
-          stroke="#24ffae"
+          fill="rgba(93,200,234,0.18)"
+          stroke="#5dc8ea"
           strokeWidth={2.4}
           strokeLinejoin="round"
-          style={{ filter: 'drop-shadow(0 0 4px rgba(36,255,174,0.34))' }}
+          style={{ filter: 'drop-shadow(0 4px 8px rgba(93,200,234,0.22))' }}
         />
 
         {/* main vertices */}
@@ -221,7 +221,7 @@ export default function AnimatedRadarChart({
               cx={x}
               cy={y}
               r={3.6}
-              fill="#24ffae"
+              fill="#248eb1"
             />
           )
         })}
@@ -235,7 +235,7 @@ export default function AnimatedRadarChart({
                   x={CX - 12}
                   y={y + 6}
                   textAnchor="end"
-                  fill="#ffffff"
+                  fill="#101820"
                   style={{ fontSize: 19, fontWeight: 700 }}
                 >
                   {n}
@@ -257,7 +257,7 @@ export default function AnimatedRadarChart({
                   y={y}
                   textAnchor={meta.anchor}
                   dominantBaseline="middle"
-                  fill="#ffffff"
+                  fill="#101820"
                   style={{
                     fontSize: 26,
                     fontWeight: 800,

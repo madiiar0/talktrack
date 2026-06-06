@@ -18,7 +18,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative isolate min-h-screen overflow-x-hidden bg-[#0b0b0b]">
+    <div className="relative isolate min-h-screen overflow-x-hidden bg-[#f7fbfc]">
       <GlobalBackground />
       <Navbar />
       <main className="relative z-10">

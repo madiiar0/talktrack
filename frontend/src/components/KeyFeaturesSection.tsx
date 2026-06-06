@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import AnimatedRadarChart from './AnimatedRadarChart'
 
-const BADGE_SRC = '/assets/badges/iron/iron2.png'
+const BADGE_SRC = '/assets/badges/platinum/platinum2.png'
 const CURRENT_EXP = 210
 const MAX_EXP = 300
 const RING_RADIUS = 92
@@ -63,16 +63,16 @@ function MiniProgressBar({
   return (
     <div>
       <div className="mb-2 flex items-center justify-between gap-3">
-        <span className="text-[11px] font-semibold text-white/58">
+        <span className="text-[11px] font-semibold text-[#101820]/60">
           {label}
         </span>
-        <span className="text-[11px] font-extrabold text-white/78">
+        <span className="text-[11px] font-bold text-[#101820]/75">
           {value}%
         </span>
       </div>
-      <div className="h-2 overflow-hidden rounded-full bg-white/10">
+      <div className="h-2 overflow-hidden rounded-full bg-[#dbeef3]">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-mint to-mint-light"
+          className="h-full rounded-full bg-gradient-to-r from-[#5dc8ea] to-[#5dc8ea]"
           style={{ width: `${value}%` }}
         />
       </div>
@@ -82,7 +82,7 @@ function MiniProgressBar({
 
 function LifeDashboardVisual() {
   return (
-    <div className="grid w-full items-center gap-1 sm:grid-cols-[minmax(180px,1fr)_minmax(108px,0.66fr)]">
+    <div className="grid w-full grid-cols-[minmax(150px,1fr)_minmax(96px,0.66fr)] items-center gap-3">
       <div className="min-w-0 self-center">
         <AnimatedRadarChart
           showLabels={false}
@@ -126,27 +126,27 @@ function StaticMoodLineChart() {
             x2="116"
             y1={y}
             y2={y}
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(16,24,32,0.10)"
             strokeWidth="1"
           />
         ))}
         <path
           d={`M${line} L114 56 L6 56 Z`}
-          fill="rgba(36,255,174,0.08)"
+          fill="rgba(93,200,234,0.14)"
         />
         <polyline
           points={line}
           fill="none"
-          stroke="#24ffae"
+          stroke="#5dc8ea"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         {points.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#afffe2" />
+          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#dbf4f8" />
         ))}
       </svg>
-      <div className="mt-1 grid grid-cols-7 text-center text-[8px] font-medium text-white/32">
+      <div className="mt-1 grid grid-cols-7 text-center text-[8px] font-medium text-[#101820]/40">
         {['1', '5', '10', '15', '20', '25', '30'].map((label) => (
           <span key={label}>{label}</span>
         ))}
@@ -167,31 +167,31 @@ function CutPhonePreview() {
       }}
     >
       <div className="relative w-full max-w-[250px] sm:max-w-[270px]">
-        <div className="aspect-[9/19.5] rounded-[34px] border border-white/[0.08] bg-[#151515] p-2 shadow-[0_26px_72px_-54px_rgba(0,0,0,0.9)]">
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] border border-[#282828] bg-[#191919] text-white">
+        <div className="aspect-[9/19.5] rounded-[34px] border border-[#050708]/80 bg-[#101214] p-2 shadow-[0_24px_66px_-52px_rgba(5,7,8,0.42)]">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] border border-[#d5e8ee] bg-[#f7fbfc] text-[#071014]">
             <div
               aria-hidden="true"
-              className="absolute left-1/2 top-3 z-20 h-5 w-[76px] -translate-x-1/2 rounded-full border border-white/[0.035] bg-black/70"
+              className="absolute left-1/2 top-3 z-20 h-5 w-[76px] -translate-x-1/2 rounded-full border border-black/70 bg-[#050708]"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent_28%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.78),transparent_28%)]"
             />
 
-            <div className="relative z-10 flex items-center justify-between px-5 pt-4 text-[10px] font-semibold text-white/78">
+            <div className="relative z-10 flex items-center justify-between px-5 pt-4 text-[10px] font-semibold text-[#071014]/70">
               <span>9:41</span>
               <span>100%</span>
             </div>
 
             <div className="relative z-10 flex-1 space-y-3.5 overflow-hidden px-4 pt-7">
-              <div className="ml-auto max-w-[86%] rounded-[15px] rounded-tr-[5px] border border-[#303030] bg-white/[0.055] px-3.5 py-2.5">
-                <p className="text-[11px] font-medium leading-[1.55] text-white/84">
+              <div className="ml-auto max-w-[86%] rounded-[15px] rounded-tr-[5px] border border-[#b8dce5]/80 bg-[#fafdff] px-3.5 py-2.5 shadow-[0_10px_24px_-24px_rgba(35,96,118,0.34)]">
+                <p className="text-[11px] font-medium leading-[1.55] text-[#071014]/82">
                   Show me my mood trend this month.
                 </p>
               </div>
 
-              <div className="mr-auto max-w-[90%] rounded-[15px] rounded-tl-[5px] border border-[#303833] bg-white/[0.045] px-3.5 py-2.5">
-                <p className="text-[11px] font-medium leading-[1.55] text-white/76">
+              <div className="mr-auto max-w-[90%] rounded-[15px] rounded-tl-[5px] border border-[#d5e8ee] bg-[#eef7fa] px-3.5 py-2.5">
+                <p className="text-[11px] font-medium leading-[1.55] text-[#101820]/74">
                   Here&apos;s your mood trend for this month. It dipped
                   mid-month, then recovered over the last week.
                 </p>
@@ -214,12 +214,18 @@ function GamificationVisual() {
           className="absolute inset-0 h-full w-full"
           aria-hidden="true"
         >
+          <defs>
+            <linearGradient id="featureBadgeRing" x1="28" y1="188" x2="188" y2="32">
+              <stop offset="0%" stopColor="#5dc8ea" />
+              <stop offset="100%" stopColor="#dbf4f8" />
+            </linearGradient>
+          </defs>
           <circle
             cx="110"
             cy="110"
             r={RING_RADIUS}
             fill="none"
-            stroke="rgba(255,255,255,0.14)"
+            stroke="#d8e3e7"
             strokeWidth="14"
           />
           <circle
@@ -227,7 +233,7 @@ function GamificationVisual() {
             cy="110"
             r={RING_RADIUS}
             fill="none"
-            stroke="#24ffae"
+            stroke="url(#featureBadgeRing)"
             strokeWidth="14"
             strokeLinecap="round"
             strokeDasharray={RING_CIRCUMFERENCE}
@@ -239,12 +245,12 @@ function GamificationVisual() {
         <img
           src={BADGE_SRC}
           alt=""
-          className="relative z-10 h-[128px] w-[128px] object-contain drop-shadow-[0_14px_26px_rgba(0,0,0,0.52)] sm:h-[146px] sm:w-[146px]"
+          className="relative z-10 h-[128px] w-[128px] object-contain drop-shadow-[0_14px_24px_rgba(35,96,118,0.22)] sm:h-[146px] sm:w-[146px]"
         />
       </div>
-      <p className="mt-3 text-[15px] font-semibold leading-none text-white sm:text-[16px]">
+      <p className="mt-3 text-[15px] font-semibold leading-none text-[#071014] sm:text-[16px]">
         {CURRENT_EXP} / {MAX_EXP}
-        <span className="ml-1 font-black text-mint">EXP</span>
+        <span className="ml-1 font-bold text-[#248eb1]">EXP</span>
       </p>
     </div>
   )
@@ -268,27 +274,27 @@ function FeatureCard({
   return (
     <article
       className={[
-        'group flex h-full flex-col rounded-[24px] border p-6 text-left backdrop-blur-md transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_78px_-58px_rgba(36,255,174,0.24)] sm:p-7',
+        'group flex h-full flex-col rounded-[26px] border p-6 text-left backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#5dc8ea]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(93,200,234,0.42)] sm:p-7',
         isMain
-          ? 'min-h-[500px] border-mint/30 bg-mint/10 shadow-[0_24px_88px_-74px_rgba(36,255,174,0.52)] hover:border-mint/45 hover:bg-mint/12 hover:shadow-[0_28px_92px_-74px_rgba(36,255,174,0.3)] lg:min-h-[600px] lg:p-8'
-          : 'min-h-[430px] border-white/10 bg-white/[0.045] shadow-[0_20px_64px_-56px_rgba(0,0,0,0.72)] hover:border-white/18 hover:bg-white/[0.06] lg:min-h-[500px]',
+          ? 'min-h-[500px] border-[#9ccbd8]/60 bg-gradient-to-b from-white/90 to-[#dbf4f8]/40 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] lg:min-h-[600px] lg:p-8'
+          : 'min-h-[430px] border-[#cfe8ef]/80 bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] lg:min-h-[500px]',
       ].join(' ')}
     >
-      <div className="mb-4 flex items-center gap-2 text-mint">
+      <div className="mb-4 flex items-center gap-2 text-[#248eb1]">
         {eyebrow === 'Personal AI agent' ? (
-          <Bot size={16} strokeWidth={2.6} aria-hidden="true" />
+          <Bot size={16} strokeWidth={2.3} aria-hidden="true" />
         ) : eyebrow === 'Personal stats' ? (
-          <BarChart3 size={16} strokeWidth={2.6} aria-hidden="true" />
+          <BarChart3 size={16} strokeWidth={2.3} aria-hidden="true" />
         ) : (
-          <Gamepad2 size={16} strokeWidth={2.6} aria-hidden="true" />
+          <Gamepad2 size={16} strokeWidth={2.3} aria-hidden="true" />
         )}
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.15em] transition-colors duration-300 group-hover:text-mint-light">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] transition-colors duration-300 group-hover:text-[#5dc8ea]">
           {eyebrow}
         </p>
       </div>
       <h3
         className={[
-          'font-extrabold leading-[1.05] tracking-[-0.018em] text-white transition-colors duration-300 group-hover:text-white',
+          'font-semibold leading-[1.1] tracking-[-0.018em] text-[#071014] transition-colors duration-300',
           isMain ? 'text-[28px] sm:text-[36px]' : 'text-[23px] sm:text-[27px]',
         ].join(' ')}
       >
@@ -296,7 +302,7 @@ function FeatureCard({
       </h3>
       <p
         className={[
-          'mt-4 font-medium leading-[1.58] text-white/65 transition-colors duration-300 group-hover:text-white/72',
+          'mt-4 font-medium leading-[1.62] text-[#101820]/65 transition-colors duration-300 group-hover:text-[#101820]/75',
           isMain ? 'text-[15px] sm:text-[17px]' : 'text-[14px] sm:text-[15px]',
         ].join(' ')}
       >
@@ -345,28 +351,35 @@ export default function KeyFeaturesSection() {
     <section
       ref={sectionRef}
       id="features"
-      className="relative px-6 py-24 sm:px-8 lg:px-[56px] lg:py-32 xl:px-[90px]"
+      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
-      <div className="relative z-10 mx-auto w-full max-w-[1320px]">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-44 top-28 h-[30rem] w-[30rem] rounded-full bg-[#dbf4f8]/50 blur-[140px]"
+      />
+      <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
           isVisible={isVisible}
           delay={0}
           className="mx-auto max-w-[980px] text-center"
         >
-          <p className="mb-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-mint">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
             KEY FEATURES
           </p>
-          <h2 className="mx-auto max-w-[900px] text-[clamp(32px,4vw,62px)] font-black leading-[1] tracking-[-0.025em] text-white">
+          <h2
+            className="mx-auto max-w-[960px] text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
+            style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+          >
             The agent layer your trackers are missing.
           </h2>
-          <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.12vw,20px)] font-medium leading-[1.55] text-white/70">
+          <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
             TalkTrack is not another fixed tracker. It learns through
             conversation, structures what matters, and lets you ask your life
             data better questions.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-[1fr_1.12fr_1fr] lg:items-center xl:gap-6">
+        <div className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-[1fr_1.12fr_1fr] lg:items-center xl:gap-5">
           <Reveal isVisible={isVisible} delay={120} className="lg:order-2">
             <FeatureCard
               eyebrow="Personal AI agent"

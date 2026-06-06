@@ -64,23 +64,34 @@ export default function Problems() {
     <section
       ref={sectionRef}
       id="problems"
-      className="relative px-6 py-24 sm:px-8 lg:px-[56px] lg:py-32 xl:px-[90px]"
+      className="relative overflow-hidden bg-[#fff] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-[#dbf4f8]/55 blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 bottom-0 h-[34rem] w-[34rem] rounded-full bg-[#5dc8ea]/20 blur-[150px]"
+      />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
-        <div className="max-w-[850px]">
-          <p className="mb-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-mint">
-            The problem
+        <div className="mx-auto max-w-[900px] text-center">
+          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#248eb1]">
+            THE PROBLEM
           </p>
-          <h2 className="text-[clamp(36px,5vw,78px)] font-black leading-[0.96] tracking-[-0.025em] text-white">
+          <h2
+            className="text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
+            style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+          >
             Your life is hard to track manually.
           </h2>
-          <p className="mt-6 max-w-[760px] text-[clamp(16px,1.35vw,23px)] font-medium leading-[1.45] text-white/70">
+          <p className="mx-auto mt-6 max-w-[760px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
             You want useful patterns and answers, but the current tools force
             you to maintain the data by hand.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-6 xl:gap-5">
           {PROBLEMS.map((problem, index) => (
             <article
               key={problem.title}
@@ -90,23 +101,23 @@ export default function Problems() {
                   : '0ms',
               }}
               className={[
-                'group relative overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.035] p-6 shadow-[0_20px_64px_-54px_rgba(0,0,0,0.72)] transition-[opacity,transform,border-color,background-color] duration-[560ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none hover:-translate-y-1 hover:border-mint/30 hover:bg-white/[0.052]',
+                'group relative overflow-hidden rounded-[24px] border border-[#cfe8ef]/80 bg-white/75 p-6 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.42)] backdrop-blur-sm transition-[opacity,transform,border-color,background-color,box-shadow] duration-[560ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none hover:-translate-y-1 hover:border-[#5dc8ea]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(93,200,234,0.42)]',
                 hasRevealed
                   ? 'translate-y-0 scale-100 opacity-100'
                   : 'translate-y-6 scale-[0.96] opacity-0',
                 index < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
               ].join(' ')}
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mint/35 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="mb-8 flex items-center justify-between gap-4">
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-mint/25 bg-mint/10 text-[14px] font-black text-mint">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5dc8ea]/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="mb-7 flex items-center justify-between gap-4">
+                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#5dc8ea]/35 bg-[#dbf4f8]/70 text-[13px] font-bold text-[#248eb1] transition-colors duration-300 group-hover:border-[#5dc8ea]/70 group-hover:bg-[#dbf4f8]">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
-              <h3 className="text-[clamp(21px,1.55vw,30px)] font-extrabold leading-[1.08] tracking-[-0.015em] text-white">
+              <h3 className="text-[clamp(21px,1.5vw,28px)] font-semibold leading-[1.13] tracking-[-0.018em] text-[#071014]">
                 {problem.title}
               </h3>
-              <p className="mt-4 text-[15px] font-medium leading-[1.6] text-white/62 sm:text-[16px]">
+              <p className="mt-4 text-[15px] font-medium leading-[1.68] text-[#101820]/65 sm:text-[16px]">
                 {problem.body}
               </p>
             </article>

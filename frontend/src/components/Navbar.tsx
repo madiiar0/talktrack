@@ -1,4 +1,3 @@
-import { ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const LINKS = [
@@ -20,25 +19,33 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center">
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-6">
       <nav
         className={[
           'relative flex w-full items-center justify-between border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
           scrolled
-            ? 'mt-3 max-w-[min(1180px,calc(100%-28px))] rounded-full border-white/10 bg-[#161616]/85 px-5 py-2.5 shadow-[0_20px_50px_-22px_rgba(0,0,0,0.95)] backdrop-blur-xl lg:px-7'
-            : 'mt-0 max-w-full rounded-none border-transparent border-b-white/15 bg-[#101010]/50 px-6 py-4 backdrop-blur-md lg:px-[100px]',
+            ? 'mt-3 max-w-[min(1180px,calc(100vw-28px))] rounded-full border-[#9ccbd8]/45 bg-white/80 px-5 py-2 shadow-[0_18px_45px_-30px_rgba(35,96,118,0.5)] backdrop-blur-xl lg:px-7'
+            : 'mt-0 max-w-[1500px] rounded-none border-transparent bg-[#f7fbfc]/92 px-2 py-5 shadow-none backdrop-blur-sm sm:px-4 lg:px-8',
         ].join(' ')}
       >
         {/* Logo */}
         <a
-          href="#top"
-          aria-label="TalkTrack home"
-          className="relative z-10 flex shrink-0 flex-col items-start leading-[0.42] tracking-[-0.01em]"
+            href="#top"
+            aria-label="TalkTrack home"
+            className="relative z-10 flex shrink-0 flex-col items-start py-0.5 leading-none tracking-[-0.02em]"
         >
-          <span className="block text-[20px] font-black text-white">Talk</span>
-          <span className="-mt-[2px] block text-[20px] font-black text-mint">
-            Track
-          </span>
+          {/* "Talk" - Kept at your original 20px size with a solid, vibrant blue/cyan gradient */}
+          <span className="relative z-10 block bg-gradient-to-r from-[#38bdf8] to-[#9ddfee] bg-clip-text text-[20px] font-black leading-none text-transparent">
+    Talk
+  </span>
+
+          {/* "Track" - Pulled upward using a negative top margin to overlap "Talk" from above */}
+          <span
+              className="relative z-20 -mt-2.5 block text-[24px] font-normal italic leading-none text-[#050708]"
+              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+          >
+    Track
+  </span>
         </a>
 
         {/* Center links — desktop, absolutely centered */}
@@ -47,7 +54,7 @@ export default function Navbar() {
             <li key={l.label}>
               <a
                 href={l.href}
-                className="whitespace-nowrap text-[14px] font-semibold text-white/80 transition-colors hover:text-white"
+                className="whitespace-nowrap text-[14px] font-medium tracking-[0.01em] text-[#050708]/80 transition-colors hover:text-[#248eb1]"
               >
                 {l.label}
               </a>
@@ -59,10 +66,9 @@ export default function Navbar() {
         <div className="relative z-10 flex items-center gap-2.5">
           <a
             href="/waitlist"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-mint to-mint-light px-4 py-2 text-[12px] font-extrabold text-black shadow-[0_0_18px_-10px_rgba(36,255,174,0.5)] transition-transform duration-200 hover:scale-[1.04] sm:px-5 sm:text-[13px]"
+            className="inline-flex min-h-10 items-center justify-center rounded-[12px] border border-[#050708]/85 bg-gradient-to-r from-[#5dc8ea] to-[#dbf4f8] px-5 text-[12px] font-semibold tracking-[0.04em] text-[#050708] shadow-[0_12px_28px_-24px_rgba(31,112,145,0.7)] transition-[border-color,transform] duration-200 hover:scale-[1.03] hover:border-[#5dc8ea] sm:px-8 sm:text-[13px]"
           >
-            I need this!
-            <ArrowRight size={14} strokeWidth={2.8} aria-hidden="true" />
+            I Need This
           </a>
 
           <button
@@ -70,21 +76,21 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white transition-colors hover:bg-white/5 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-[#050708]/15 text-[#050708] transition-colors hover:border-[#5dc8ea]/70 hover:bg-[#dbf4f8]/50 lg:hidden"
           >
             <span className="relative block h-[14px] w-[18px]">
               <span
-                className={`absolute left-0 block h-[2px] w-full rounded bg-white transition-all duration-300 ${
+                className={`absolute left-0 block h-[2px] w-full rounded bg-[#050708] transition-all duration-300 ${
                   open ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0'
                 }`}
               />
               <span
-                className={`absolute left-0 top-1/2 block h-[2px] w-full -translate-y-1/2 rounded bg-white transition-opacity duration-200 ${
+                className={`absolute left-0 top-1/2 block h-[2px] w-full -translate-y-1/2 rounded bg-[#050708] transition-opacity duration-200 ${
                   open ? 'opacity-0' : 'opacity-100'
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[2px] w-full rounded bg-white transition-all duration-300 ${
+                className={`absolute left-0 block h-[2px] w-full rounded bg-[#050708] transition-all duration-300 ${
                   open ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-0'
                 }`}
               />
@@ -96,11 +102,14 @@ export default function Navbar() {
       {/* Mobile dropdown menu (CSS enter/exit, always mounted) */}
       <div
         aria-hidden={!open}
-        className={`absolute left-1/2 top-[74px] w-[calc(100%-24px)] max-w-[420px] -translate-x-1/2 rounded-3xl border border-white/10 bg-[#141414]/95 p-2 shadow-2xl backdrop-blur-xl transition-all duration-200 ease-out lg:hidden ${
-          open
-            ? 'visible translate-y-0 opacity-100'
-            : 'invisible -translate-y-2 opacity-0'
-        }`}
+        style={{
+          opacity: open ? 1 : 0,
+          transform: open
+            ? 'translate3d(-50%, 0, 0)'
+            : 'translate3d(-50%, -8px, 0)',
+          visibility: open ? 'visible' : 'hidden',
+        }}
+        className="absolute left-1/2 top-[82px] w-[calc(100%-24px)] max-w-[420px] rounded-3xl border border-[#9ccbd8]/45 bg-white/90 p-2 shadow-[0_22px_60px_-34px_rgba(35,96,118,0.55)] backdrop-blur-xl transition-[opacity,transform] duration-200 ease-out lg:hidden"
       >
         <ul className="flex flex-col">
           {LINKS.map((l) => (
@@ -109,7 +118,7 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 tabIndex={open ? 0 : -1}
-                className="block rounded-2xl px-4 py-3 text-[16px] font-semibold text-white/85 transition-colors hover:bg-white/5 hover:text-white"
+                className="block rounded-2xl px-4 py-3 text-[16px] font-medium text-[#050708]/80 transition-colors hover:bg-[#dbf4f8]/65 hover:text-[#248eb1]"
               >
                 {l.label}
               </a>
