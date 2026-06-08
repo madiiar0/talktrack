@@ -5,6 +5,7 @@ import {
   ChevronDown,
   CheckCircle2,
   ChevronRight,
+  ClipboardCheck,
   Crosshair,
   Download,
   Dumbbell,
@@ -25,7 +26,7 @@ import {
 import { useState } from 'react'
 import type { ComponentType, ReactNode } from 'react'
 
-type TabId = 'main' | 'logs' | 'tracking' | 'account'
+type TabId = 'main' | 'logs' | 'checkin' | 'tracking' | 'account'
 type IconComponent = ComponentType<{
   size?: number
   strokeWidth?: number
@@ -51,6 +52,7 @@ const STREAK_DAYS = new Set([8, 9, 10, 11, 12, 13, 14])
 const TABS: Array<{ id: TabId; label: string; icon: IconComponent }> = [
   { id: 'main', label: 'Main', icon: MessageSquare },
   { id: 'logs', label: 'Logs', icon: FileText },
+  { id: 'checkin', label: 'Check-In', icon: ClipboardCheck },
   { id: 'tracking', label: 'Tracking', icon: Activity },
   { id: 'account', label: 'Account', icon: User },
 ]
@@ -444,6 +446,88 @@ function LogsDemoScreen() {
   )
 }
 
+function CheckInMetric({
+  label,
+  value,
+  detail,
+}: {
+  label: string
+  value: string
+  detail: string
+}) {
+  return (
+    <div className="rounded-[15px] border border-[#d5e8ee] bg-white/76 px-3 py-2.5">
+      <div className="mb-2 flex items-center justify-between gap-3">
+        <span className="text-[11px] font-semibold text-[#071014]/78">{label}</span>
+        <span className="text-[11px] font-bold text-[#147BA6]">{value}</span>
+      </div>
+      <div className="h-2 overflow-hidden rounded-full bg-[#d8e3e7]">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-[#2498C7] to-[#147BA6]"
+          style={{ width: detail }}
+        />
+      </div>
+    </div>
+  )
+}
+
+function CheckInDemoScreen() {
+  const [anxietyLevel, setAnxietyLevel] = useState(4)
+
+  return (
+    <div className="h-full overflow-y-auto pb-3">
+      <PhoneHeader title="Check-In" subtitle="Log today through conversation." />
+      <div className="mt-4 space-y-3 px-4">
+        <div className="rounded-[20px] border border-[#B7E3F2] bg-gradient-to-b from-white/90 to-[#E7F6FB]/55 p-4">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#147BA6]">
+            Today's prompt
+          </p>
+          <p className="mt-2 text-[15px] font-semibold leading-[1.35] tracking-[-0.02em] text-[#071014]">
+            How are sleep, mood, and anxiety feeling today?
+          </p>
+          <p className="mt-2 text-[11px] font-medium leading-[1.45] text-[#101820]/55">
+            TalkTrack will structure your answer into daily metrics and notes.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          <CheckInMetric label="Sleep" value="7.5h" detail="72%" />
+          <CheckInMetric label="Mood" value="4/5" detail="80%" />
+        </div>
+
+        <div className="rounded-[18px] border border-[#d5e8ee] bg-white/76 p-3.5">
+          <div className="mb-2 flex items-center justify-between">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[#101820]/48">
+              Anxiety level
+            </span>
+            <span className="rounded-full border border-[#B7E3F2] bg-[#E7F6FB]/72 px-2 py-0.5 text-[10px] font-bold text-[#147BA6]">
+              {anxietyLevel}/10
+            </span>
+          </div>
+          <StatusControlCard value={anxietyLevel} onChange={setAnxietyLevel} />
+        </div>
+
+        <div className="rounded-[18px] border border-[#d5e8ee] bg-white/76 p-3.5">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[#147BA6]">
+            AI note
+          </p>
+          <p className="mt-2 text-[12px] font-medium leading-[1.5] text-[#101820]/68">
+            Sleep is close to your weekly average. If anxiety stays below 5,
+            today will likely continue your steadier mood streak.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          className="flex h-11 w-full items-center justify-center rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#2498C7] to-[#147BA6] text-[12px] font-bold uppercase tracking-[0.05em] text-white shadow-[0_14px_32px_-24px_rgba(20,123,166,0.7)]"
+        >
+          Complete Check-In
+        </button>
+      </div>
+    </div>
+  )
+}
+
 function ProgressBadge() {
   return (
     <div className="px-1 pb-2 pt-1 text-center">
@@ -648,10 +732,11 @@ function PhoneTabBar({
   onInteract: () => void
 }) {
   return (
-    <nav className="mx-3 mb-3 grid grid-cols-4 rounded-full border border-[#B7E3F2] bg-white/80 p-1.5 shadow-[0_12px_30px_-28px_rgba(35,96,118,0.22)]">
+    <nav className="mx-3 mb-3 grid grid-cols-5 items-end rounded-full border border-[#B7E3F2] bg-white/80 p-1.5 shadow-[0_12px_30px_-28px_rgba(35,96,118,0.22)]">
       {TABS.map((tab) => {
         const Icon = tab.icon
         const active = activeTab === tab.id
+        const isCheckIn = tab.id === 'checkin'
         return (
           <button
             key={tab.id}
@@ -661,12 +746,28 @@ function PhoneTabBar({
               onChange(tab.id)
             }}
             className={[
-              'flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-full px-1.5 py-1.5 transition-colors',
+              'flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-full px-1 py-1.5 transition-colors',
               active ? 'bg-[#E7F6FB] text-[#147BA6]' : 'text-[#101820]/42 hover:text-[#147BA6]',
             ].join(' ')}
+            aria-label={isCheckIn ? 'Check-In' : undefined}
           >
-            <Icon size={15} strokeWidth={2.5} aria-hidden="true" />
-            <span className="text-[9px] font-semibold leading-none">{tab.label}</span>
+            {isCheckIn ? (
+              <span
+                className={[
+                  'grid h-8 w-8 place-items-center rounded-full transition-colors',
+                  active
+                    ? 'bg-[#2498C7] text-white shadow-[0_8px_18px_-14px_rgba(20,123,166,0.7)]'
+                    : 'bg-[#E7F6FB] text-[#147BA6]',
+                ].join(' ')}
+              >
+                <Icon size={16} strokeWidth={2.6} aria-hidden="true" />
+              </span>
+            ) : (
+              <>
+                <Icon size={15} strokeWidth={2.5} aria-hidden="true" />
+                <span className="text-[9px] font-semibold leading-none">{tab.label}</span>
+              </>
+            )}
           </button>
         )
       })}
@@ -676,6 +777,7 @@ function PhoneTabBar({
 
 function ActiveScreen({ tab }: { tab: TabId }) {
   if (tab === 'logs') return <LogsDemoScreen />
+  if (tab === 'checkin') return <CheckInDemoScreen />
   if (tab === 'tracking') return <TrackingDemoScreen />
   if (tab === 'account') return <AccountDemoScreen />
   return <MainDemoScreen />
