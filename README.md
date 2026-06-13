@@ -1,12 +1,13 @@
 # TalkTrack Landing Page
 
-TalkTrack is a dark premium SaaS landing page with a separate waitlist API.
+TalkTrack is a light, cloud-inspired SaaS landing page with a separate Express
+and MongoDB API for waitlist, contact, and data-export request storage.
 
 ## Project Structure
 
 ```text
-frontend/  Vite React landing page and waitlist screen
-backend/   Express and Mongoose waitlist API
+frontend/  Vite React landing page, waitlist, policy, contact, and export pages
+backend/   Express/Mongoose API plus Vercel serverless functions
 ```
 
 ## Frontend
@@ -35,7 +36,16 @@ The waitlist screen is available at:
 /waitlist
 ```
 
-All landing page waitlist CTAs navigate to `/waitlist`.
+Public support pages:
+
+```text
+/policies
+/contact
+/export-data
+```
+
+All landing page waitlist CTAs navigate to `/waitlist`. Footer utility links
+point to the public policy, contact, and export request pages.
 
 ## Backend
 
@@ -91,6 +101,74 @@ Response:
   "count": 0
 }
 ```
+
+### POST `/api/contact`
+
+Stores a support/contact request in MongoDB collection `contactRequests`.
+
+Request body:
+
+```json
+{
+  "name": "string optional",
+  "email": "string",
+  "appUserEmail": "string optional",
+  "subject": "string",
+  "message": "string",
+  "company": "hidden honeypot optional"
+}
+```
+
+Success response:
+
+```json
+{
+  "ok": true,
+  "message": "Your message has been received."
+}
+```
+
+### POST `/api/export-data`
+
+Stores a data-export task in MongoDB collection `exportDataRequests`.
+
+Request body:
+
+```json
+{
+  "name": "string optional",
+  "accountEmail": "string",
+  "confirmAccountEmail": "string",
+  "message": "string optional",
+  "ownershipVerificationAcknowledged": true,
+  "company": "hidden honeypot optional"
+}
+```
+
+Success response:
+
+```json
+{
+  "ok": true,
+  "message": "Your data export request has been received."
+}
+```
+
+These public request forms only create review tasks. They do not authenticate
+users, export data automatically, or email sensitive data.
+
+## MongoDB Collections
+
+Submitted tasks can be viewed in the database configured by `MONGODB_URI`:
+
+```text
+waitlistentries       Waitlist submissions
+contactRequests       Contact/help/support requests
+exportDataRequests    Data export requests
+```
+
+Contact/export documents include readable fields such as `type`, `status`,
+`createdAt`, user-provided email fields, subject/message, and `userAgent`.
 
 ## Root Scripts
 

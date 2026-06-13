@@ -8,13 +8,30 @@ import FaqSection from './components/FaqSection'
 import FinalCTASection from './components/FinalCTASection'
 import Footer from './components/Footer'
 import WaitlistPage from './components/WaitlistPage'
+import PoliciesPage from './components/PoliciesPage'
+import ContactPage from './components/ContactPage'
+import ExportDataPage from './components/ExportDataPage'
 
 export default function App() {
-  const isWaitlistPage =
-    typeof window !== 'undefined' && window.location.pathname === '/waitlist'
+  const pathname =
+    typeof window !== 'undefined'
+      ? window.location.pathname.replace(/\/+$/, '') || '/'
+      : '/'
 
-  if (isWaitlistPage) {
+  if (pathname === '/waitlist') {
     return <WaitlistPage />
+  }
+
+  if (pathname === '/policies') {
+    return <PoliciesPage />
+  }
+
+  if (pathname === '/contact') {
+    return <ContactPage />
+  }
+
+  if (pathname === '/export-data') {
+    return <ExportDataPage />
   }
 
   return (

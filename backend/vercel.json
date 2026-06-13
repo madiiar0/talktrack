@@ -12,6 +12,14 @@
     {
       "src": "/api/waitlist",
       "dest": "/api/waitlist.js"
+    },
+    {
+      "src": "/api/contact",
+      "dest": "/api/contact.js"
+    },
+    {
+      "src": "/api/export-data",
+      "dest": "/api/export-data.js"
     }
   ]
 }

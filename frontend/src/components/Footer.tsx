@@ -8,9 +8,9 @@ const NAV_LINKS = [
 ]
 
 const UTILITY_LINKS = [
-  { label: 'Privacy', href: '#privacy' },
-  { label: 'Terms', href: '#terms' },
-  { label: 'Contact', href: 'mailto:madiyaraskar5@gmail.com' },
+  { label: 'Policies', href: '/policies' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Export Data', href: '/export-data' },
 ]
 
 function FooterLogo() {

@@ -6,6 +6,7 @@ import {
   errorHandler,
   notFoundHandler,
 } from './middleware/errorHandler.js'
+import supportRoutes from './routes/support.routes.js'
 import waitlistRoutes from './routes/waitlist.routes.js'
 
 dotenv.config()
@@ -74,6 +75,7 @@ app.get('/health', (_req, res) => {
   })
 })
 
+app.use('/api', supportRoutes)
 app.use('/api/waitlist', waitlistRoutes)
 app.use(notFoundHandler)
 app.use(errorHandler)
