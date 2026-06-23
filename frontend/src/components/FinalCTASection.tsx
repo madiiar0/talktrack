@@ -1,6 +1,6 @@
-import { ArrowRight, Users } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
+import AppStoreButton from './AppStoreButton'
 
 function prefersReducedMotion() {
   return (
@@ -34,11 +34,10 @@ function Reveal({
   )
 }
 
-function WaitlistPill() {
+function LaunchPill() {
   return (
-    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#B7E3F2] bg-white/75 px-4 py-2 text-[13px] font-semibold text-[#101820]/68 backdrop-blur-sm sm:text-[14px]">
-      <Users size={15} strokeWidth={2.4} aria-hidden="true" className="shrink-0 text-[#147BA6]" />
-      47 people are already on the waitlist.
+    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--tt-accent-border)] bg-white/75 px-4 py-2 text-[13px] font-semibold text-[color:var(--tt-ink)] backdrop-blur-sm sm:text-[14px]">
+      Coming soon on the App Store
     </div>
   )
 }
@@ -73,41 +72,28 @@ export default function FinalCTASection() {
     <section
       ref={sectionRef}
       id="early-access"
-      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
+      className="tt-section relative overflow-hidden"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-12 bottom-0 h-52 rounded-full bg-[#2498C7]/12 blur-[100px]"
-      />
       <div className="relative z-10 mx-auto w-full max-w-[1180px]">
-        <div className="overflow-hidden rounded-[34px] border border-[#B7E3F2]/90 bg-gradient-to-br from-white/90 via-[#fafdff]/90 to-[#E7F6FB]/50 px-6 py-14 text-center shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] backdrop-blur-sm sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+        <div className="tt-soft-panel overflow-hidden px-6 py-14 text-center sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <Reveal isVisible={isVisible} delay={0}>
-            <p className="mb-5 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
-              GET EARLY ACCESS
+            <p className="tt-eyebrow mb-5">
+              APP STORE LAUNCH
             </p>
           </Reveal>
 
           <Reveal isVisible={isVisible} delay={100}>
-            <h2
-              className="mx-auto max-w-[980px] text-[clamp(42px,5.4vw,88px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
-              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
-            >
-              Build a personal AI memory for your life.
+            <h2 className="tt-section-title mx-auto max-w-[900px]">
+              Start building a calmer record of your days.
             </h2>
           </Reveal>
 
           <Reveal isVisible={isVisible} delay={210} className="mt-8">
-            <WaitlistPill />
+            <LaunchPill />
           </Reveal>
 
           <Reveal isVisible={isVisible} delay={320} className="mt-7">
-            <a
-              href="/waitlist"
-              className="inline-flex min-h-[56px] items-center justify-center rounded-full border border-[#050708]/80 bg-gradient-to-r from-[#2498C7] to-[#147BA6] px-9 text-[14px] font-bold uppercase tracking-[0.05em] text-white shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#147BA6] hover:shadow-[0_18px_42px_-30px_rgba(36,152,199,0.72)] active:translate-y-0 sm:min-h-[62px] sm:px-11 sm:text-[15px]"
-            >
-              JOIN EARLY ACCESS
-              <ArrowRight size={17} strokeWidth={2.6} aria-hidden="true" className="ml-2" />
-            </a>
+            <AppStoreButton />
           </Reveal>
         </div>
       </div>

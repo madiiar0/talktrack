@@ -2,24 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 
 const PROBLEMS = [
   {
-    title: 'Your history is scattered',
-    body: 'Mood apps, habit trackers, sleep logs, notes, and memories all live in different places, so no one system understands the whole picture.',
+    title: 'Your reflections are scattered',
+    body: 'Notes, check-ins, mood logs, habits, and memories often live in different places, so patterns stay hard to see.',
   },
   {
-    title: 'Journals do not become data',
-    body: 'Writing can help, but most entries stay as plain text. You cannot easily ask them for trends, averages, charts, or changes over time.',
+    title: 'Journal text is hard to review',
+    body: 'Writing can help, but long entries stay as plain text. You cannot easily scan them for trends, insights, or noticed patterns.',
   },
   {
     title: 'Manual tracking breaks',
-    body: 'Spreadsheets and rigid forms require too much maintenance. The moment life gets busy, the system stops being useful.',
+    body: 'Spreadsheets and rigid forms require too much maintenance. The moment life gets busy, the habit stops being useful.',
   },
   {
-    title: 'Generic AI lacks memory',
-    body: 'Most AI tools can answer a prompt, but they do not know what happened in your life yesterday, last week, or last month.',
+    title: 'Generic AI lacks your log history',
+    body: 'Most AI tools can answer a prompt, but they do not have your daily reflections, tracker answers, and past patterns in one place.',
   },
   {
-    title: 'You cannot query your life',
-    body: 'You should be able to ask how your sleep, anxiety, mood, focus, and habits changed without building another personal database yourself.',
+    title: 'Your logs should become useful',
+    body: 'A short reflection should become structured history you can revisit, compare, and learn from over time.',
   },
 ]
 
@@ -64,30 +64,30 @@ export default function Problems() {
     <section
       ref={sectionRef}
       id="problems"
-      className="relative overflow-hidden bg-[#fff] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
+      className="relative overflow-hidden bg-white px-6 py-20 text-[color:var(--tt-ink)] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-[#E7F6FB]/55 blur-[120px]"
+        className="pointer-events-none absolute -left-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-[rgba(239,238,252,0.7)] blur-[120px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 bottom-0 h-[34rem] w-[34rem] rounded-full bg-[#2498C7]/20 blur-[150px]"
+        className="pointer-events-none absolute -right-40 bottom-0 h-[34rem] w-[34rem] rounded-full bg-[rgba(125,125,232,0.16)] blur-[150px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <div className="mx-auto max-w-[900px] text-center">
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
+          <p className="tt-eyebrow mb-4">
             THE PROBLEM
           </p>
           <h2
             className="text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
             style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
           >
-            Your life is hard to track manually.
+            Reflection is hard to maintain manually.
           </h2>
           <p className="mx-auto mt-6 max-w-[760px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
-            You want useful patterns and answers, but the current tools force
-            you to maintain the data by hand.
+            You want useful trends and answers, but most tools either ask for
+            too much data entry or leave your reflections as unstructured text.
           </p>
         </div>
 
@@ -101,16 +101,16 @@ export default function Problems() {
                   : '0ms',
               }}
               className={[
-                'group relative overflow-hidden rounded-[24px] border border-[#B7E3F2]/80 bg-white/75 p-6 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.42)] backdrop-blur-sm transition-[opacity,transform,border-color,background-color,box-shadow] duration-[560ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none hover:-translate-y-1 hover:border-[#2498C7]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(36,152,199,0.42)]',
+                'group relative overflow-hidden rounded-[24px] border border-[#D8D6F4]/80 bg-white/75 p-6 shadow-[0_20px_70px_-62px_rgba(117,106,216,0.42)] backdrop-blur-sm transition-[opacity,transform,border-color,background-color,box-shadow] duration-[560ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:scale-100 motion-reduce:opacity-100 motion-reduce:transition-none hover:-translate-y-1 hover:border-[#7D7DE8]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(125,125,232,0.42)]',
                 hasRevealed
                   ? 'translate-y-0 scale-100 opacity-100'
                   : 'translate-y-6 scale-[0.96] opacity-0',
                 index < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
               ].join(' ')}
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2498C7]/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#7D7DE8]/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="mb-7 flex items-center justify-between gap-4">
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#2498C7]/35 bg-[#E7F6FB]/70 text-[13px] font-bold text-[#147BA6] transition-colors duration-300 group-hover:border-[#2498C7]/70 group-hover:bg-[#E7F6FB]">
+                <span className="grid h-10 w-10 place-items-center rounded-full border border-[#7D7DE8]/35 bg-[#EFEEFC]/70 text-[13px] font-bold text-[#5A4FC4] transition-colors duration-300 group-hover:border-[#7D7DE8]/70 group-hover:bg-[#EFEEFC]">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>

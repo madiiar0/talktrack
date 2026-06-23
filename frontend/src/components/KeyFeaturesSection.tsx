@@ -72,7 +72,7 @@ function MiniProgressBar({
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-[#dbeef3]">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-[#2498C7] to-[#147BA6]"
+          className="h-full rounded-full bg-gradient-to-r from-[#7D7DE8] to-[#5A4FC4]"
           style={{ width: `${value}%` }}
         />
       </div>
@@ -99,108 +99,24 @@ function LifeDashboardVisual() {
   )
 }
 
-function StaticMoodLineChart() {
-  const points = [
-    [6, 49],
-    [24, 42],
-    [42, 45],
-    [60, 32],
-    [78, 35],
-    [96, 25],
-    [114, 19],
-  ] as const
-  const line = points.map(([x, y]) => `${x},${y}`).join(' ')
-
-  return (
-    <div className="mt-3">
-      <svg
-        viewBox="0 0 120 58"
-        className="h-[82px] w-full"
-        role="img"
-        aria-label="Mood trend line chart"
-      >
-        {[14, 29, 44].map((y) => (
-          <line
-            key={y}
-            x1="4"
-            x2="116"
-            y1={y}
-            y2={y}
-            stroke="rgba(16,24,32,0.10)"
-            strokeWidth="1"
-          />
-        ))}
-        <path
-          d={`M${line} L114 56 L6 56 Z`}
-          fill="rgba(36,152,199,0.14)"
-        />
-        <polyline
-          points={line}
-          fill="none"
-          stroke="#2498C7"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {points.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r="2.3" fill="#E7F6FB" />
-        ))}
-      </svg>
-      <div className="mt-1 grid grid-cols-7 text-center text-[8px] font-medium text-[#101820]/40">
-        {['1', '5', '10', '15', '20', '25', '30'].map((label) => (
-          <span key={label}>{label}</span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 function CutPhonePreview() {
   return (
     <div
-      className="relative mt-5 flex h-[330px] w-full justify-center overflow-hidden sm:h-[365px]"
+      className="relative mt-5 flex h-[300px] w-full items-start justify-center overflow-hidden sm:h-[330px] lg:h-[355px]"
       style={{
         WebkitMaskImage:
-          'linear-gradient(to bottom, #000 0%, #000 84%, rgba(0,0,0,0) 100%)',
+          'linear-gradient(to bottom, #000 0%, #000 80%, rgba(0,0,0,0) 100%)',
         maskImage:
-          'linear-gradient(to bottom, #000 0%, #000 84%, rgba(0,0,0,0) 100%)',
+          'linear-gradient(to bottom, #000 0%, #000 80%, rgba(0,0,0,0) 100%)',
       }}
     >
-      <div className="relative w-full max-w-[250px] sm:max-w-[270px]">
-        <div className="aspect-[9/19.5] rounded-[34px] border border-[#050708]/80 bg-[#101214] p-2 shadow-[0_24px_66px_-52px_rgba(5,7,8,0.42)]">
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[27px] border border-[#d5e8ee] bg-[#f7fbfc] text-[#071014]">
-            <div
-              aria-hidden="true"
-              className="absolute left-1/2 top-3 z-20 h-5 w-[76px] -translate-x-1/2 rounded-full border border-black/70 bg-[#050708]"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.78),transparent_28%)]"
-            />
-
-            <div className="relative z-10 flex items-center justify-between px-5 pt-4 text-[10px] font-semibold text-[#071014]/70">
-              <span>9:41</span>
-              <span>100%</span>
-            </div>
-
-            <div className="relative z-10 flex-1 space-y-3.5 overflow-hidden px-4 pt-7">
-              <div className="ml-auto max-w-[86%] rounded-[15px] rounded-tr-[5px] border border-[#b8dce5]/80 bg-[#fafdff] px-3.5 py-2.5 shadow-[0_10px_24px_-24px_rgba(35,96,118,0.34)]">
-                <p className="text-[11px] font-medium leading-[1.55] text-[#071014]/82">
-                  Show me my mood trend this month.
-                </p>
-              </div>
-
-              <div className="mr-auto max-w-[90%] rounded-[15px] rounded-tl-[5px] border border-[#d5e8ee] bg-[#eef7fa] px-3.5 py-2.5">
-                <p className="text-[11px] font-medium leading-[1.55] text-[#101820]/74">
-                  Here&apos;s your mood trend for this month. It dipped
-                  mid-month, then recovered over the last week.
-                </p>
-                <StaticMoodLineChart />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img
+        src="/assets/keyfeaturespic.png"
+        alt="TalkTrack structured reflection feature preview"
+        className="h-auto w-full max-w-[280px] object-contain sm:max-w-[300px] lg:max-w-[318px]"
+        loading="lazy"
+        draggable="false"
+      />
     </div>
   )
 }
@@ -216,8 +132,8 @@ function GamificationVisual() {
         >
           <defs>
             <linearGradient id="featureBadgeRing" x1="28" y1="188" x2="188" y2="32">
-              <stop offset="0%" stopColor="#2498C7" />
-              <stop offset="100%" stopColor="#147BA6" />
+              <stop offset="0%" stopColor="#7D7DE8" />
+              <stop offset="100%" stopColor="#5A4FC4" />
             </linearGradient>
           </defs>
           <circle
@@ -225,7 +141,7 @@ function GamificationVisual() {
             cy="110"
             r={RING_RADIUS}
             fill="none"
-            stroke="#d8e3e7"
+            stroke="#E7ECF3"
             strokeWidth="14"
           />
           <circle
@@ -245,12 +161,12 @@ function GamificationVisual() {
         <img
           src={BADGE_SRC}
           alt=""
-          className="relative z-10 h-[128px] w-[128px] object-contain drop-shadow-[0_14px_24px_rgba(35,96,118,0.22)] sm:h-[146px] sm:w-[146px]"
+          className="relative z-10 h-[128px] w-[128px] object-contain drop-shadow-[0_14px_24px_rgba(63,75,102,0.22)] sm:h-[146px] sm:w-[146px]"
         />
       </div>
       <p className="mt-3 text-[15px] font-semibold leading-none text-[#071014] sm:text-[16px]">
         {CURRENT_EXP} / {MAX_EXP}
-        <span className="ml-1 font-bold text-[#147BA6]">EXP</span>
+        <span className="ml-1 font-bold text-[#5A4FC4]">EXP</span>
       </p>
     </div>
   )
@@ -274,21 +190,21 @@ function FeatureCard({
   return (
     <article
       className={[
-        'group flex h-full flex-col rounded-[26px] border p-6 text-left backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#2498C7]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(36,152,199,0.42)] sm:p-7',
+        'group flex h-full flex-col rounded-[26px] border p-6 text-left backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#7D7DE8]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(125,125,232,0.42)] sm:p-7',
         isMain
-          ? 'min-h-[500px] border-[#9ccbd8]/60 bg-gradient-to-b from-white/90 to-[#E7F6FB]/40 shadow-[0_24px_88px_-76px_rgba(52,116,138,0.48)] lg:min-h-[600px] lg:p-8'
-          : 'min-h-[430px] border-[#B7E3F2]/80 bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] lg:min-h-[500px]',
+          ? 'min-h-[500px] border-[var(--tt-accent-border)] bg-gradient-to-b from-white/90 to-[var(--tt-accent-50)] shadow-[var(--tt-shadow)] lg:min-h-[600px] lg:p-8'
+          : 'min-h-[430px] border-[var(--tt-accent-border)] bg-white/75 shadow-[var(--tt-shadow)] lg:min-h-[500px]',
       ].join(' ')}
     >
-      <div className="mb-4 flex items-center gap-2 text-[#147BA6]">
-        {eyebrow === 'Personal AI agent' ? (
+      <div className="mb-4 flex items-center gap-2 text-[#5A4FC4]">
+        {eyebrow === 'AI companion' ? (
           <Bot size={16} strokeWidth={2.3} aria-hidden="true" />
         ) : eyebrow === 'Personal stats' ? (
           <BarChart3 size={16} strokeWidth={2.3} aria-hidden="true" />
         ) : (
           <Gamepad2 size={16} strokeWidth={2.3} aria-hidden="true" />
         )}
-        <p className="text-[11px] font-bold uppercase tracking-[0.16em] transition-colors duration-300 group-hover:text-[#2498C7]">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] transition-colors duration-300 group-hover:text-[#7D7DE8]">
           {eyebrow}
         </p>
       </div>
@@ -351,11 +267,11 @@ export default function KeyFeaturesSection() {
     <section
       ref={sectionRef}
       id="features"
-      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
+      className="relative overflow-hidden bg-[var(--tt-bg)] px-6 py-20 text-[color:var(--tt-ink)] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-44 top-28 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/50 blur-[140px]"
+        className="pointer-events-none absolute -right-44 top-28 h-[30rem] w-[30rem] rounded-full bg-[#EFEEFC]/50 blur-[140px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
@@ -363,28 +279,27 @@ export default function KeyFeaturesSection() {
           delay={0}
           className="mx-auto max-w-[980px] text-center"
         >
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
+          <p className="tt-eyebrow mb-4">
             KEY FEATURES
           </p>
           <h2
             className="mx-auto max-w-[960px] text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
             style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
           >
-            The agent layer your trackers are missing.
+            Reflection that becomes useful over time.
           </h2>
           <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
-            TalkTrack is not another fixed tracker. It learns through
-            conversation, structures what matters, and lets you ask your life
-            data better questions.
+            TalkTrack structures voice-first reflections into daily logs,
+            tracker answers, trends, and gentle follow-up questions.
           </p>
         </Reveal>
 
         <div className="mt-12 grid gap-4 sm:mt-14 lg:grid-cols-[1fr_1.12fr_1fr] lg:items-center xl:gap-5">
           <Reveal isVisible={isVisible} delay={120} className="lg:order-2">
             <FeatureCard
-              eyebrow="Personal AI agent"
-              title="Answers based on your actual history"
-              text="Ask about your days, habits, emotions, decisions, and routines. TalkTrack responds from the context it has learned over time."
+              eyebrow="AI companion"
+              title="Structured reflection using What, So what, Now what"
+              text="Speak naturally about your day, then review clear reflection sections instead of a single wall of journal text."
               isMain
             >
               <CutPhonePreview />
@@ -394,8 +309,8 @@ export default function KeyFeaturesSection() {
           <Reveal isVisible={isVisible} delay={240} className="lg:order-1">
             <FeatureCard
               eyebrow="Personal stats"
-              title="Progress you can see and query"
-              text="Turn conversation history into dashboards, weekly trends, averages, and comparisons across the trackers you choose."
+              title="Trends, insights, and noticed patterns"
+              text="See logs become visible progress across mood, habits, productivity, faith, health, and custom trackers you choose."
               centerVisual
             >
               <LifeDashboardVisual />
@@ -405,8 +320,8 @@ export default function KeyFeaturesSection() {
           <Reveal isVisible={isVisible} delay={360} className="lg:order-3">
             <FeatureCard
               eyebrow="Gamification"
-              title="Gamification that keeps you consistent"
-              text="Build the habit with XP, streaks, badges, levels, and progress loops that make daily reflection easier to maintain."
+              title="Gentle loops that support consistency"
+              text="XP, streaks, badges, and daily completion states make a short reflection habit easier to maintain."
             >
               <GamificationVisual />
             </FeatureCard>
