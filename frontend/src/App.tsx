@@ -8,7 +8,11 @@ import FaqSection from './components/FaqSection'
 import FinalCTASection from './components/FinalCTASection'
 import Footer from './components/Footer'
 import WaitlistPage from './components/WaitlistPage'
-import PoliciesPage from './components/PoliciesPage'
+import PoliciesPage, {
+  AiDisclaimerPage,
+  PrivacyPage,
+  TermsPage,
+} from './components/PoliciesPage'
 import ContactPage from './components/ContactPage'
 import ExportDataPage from './components/ExportDataPage'
 
@@ -26,7 +30,19 @@ export default function App() {
     return <PoliciesPage />
   }
 
-  if (pathname === '/contact') {
+  if (pathname === '/privacy') {
+    return <PrivacyPage />
+  }
+
+  if (pathname === '/terms') {
+    return <TermsPage />
+  }
+
+  if (pathname === '/ai-disclaimer') {
+    return <AiDisclaimerPage />
+  }
+
+  if (pathname === '/contact' || pathname === '/support') {
     return <ContactPage />
   }
 
@@ -35,7 +51,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative isolate min-h-screen overflow-x-hidden bg-[#f7fbfc]">
+    <div className="tt-page relative isolate min-h-screen overflow-x-hidden">
       <GlobalBackground />
       <Navbar />
       <main className="relative z-10">

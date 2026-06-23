@@ -8,18 +8,18 @@ import type { ReactNode } from 'react'
 
 const TRACKING_CARDS = [
   {
-    title: 'Daily check-ins',
-    text: 'Log sleep, mood, focus, energy, workouts, or anything else through natural AI conversation.',
+    title: 'Voice-first daily reflection',
+    text: 'Speak for 2-3 minutes about your day, then let TalkTrack structure the log into useful sections.',
     icon: MessageSquareText,
   },
   {
-    title: 'Charts & analytics',
-    text: 'Ask for averages, weekly trends, comparisons, summaries, and compact charts from your history.',
+    title: 'Trends and insights',
+    text: 'Review averages, weekly trends, comparisons, summaries, and noticed patterns from your own history.',
     icon: BarChart3,
   },
   {
     title: 'Flexible tracking',
-    text: 'Start, pause, or change what TalkTrack follows over time without forms, spreadsheets, or setup screens.',
+    text: 'Track mood, habits, productivity, faith, health, and custom topics without maintaining a spreadsheet.',
     icon: SlidersHorizontal,
   },
 ]
@@ -86,11 +86,11 @@ export default function CommandExamplesSection() {
     <section
       ref={sectionRef}
       id="commands"
-      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
+      className="relative overflow-hidden bg-[var(--tt-bg)] px-6 py-20 text-[color:var(--tt-ink)] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/45 blur-[140px]"
+        className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-[#EFEEFC]/45 blur-[140px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
@@ -98,18 +98,18 @@ export default function CommandExamplesSection() {
           delay={0}
           className="mx-auto max-w-[980px] text-center"
         >
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
-            WHAT YOU CAN TRACK
+          <p className="tt-eyebrow mb-4">
+            HOW IT WORKS
           </p>
           <h2
             className="mx-auto max-w-[960px] text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
             style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
           >
-            One agent for check-ins, trends, and changing goals.
+            Speak, structure, and see what changes.
           </h2>
           <p className="mx-auto mt-6 max-w-[760px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
-            TalkTrack handles the structure behind the conversation, so your
-            life data can grow with what you actually care about.
+            TalkTrack helps turn quick daily reflections into structured logs
+            that become easier to review over time.
           </p>
         </Reveal>
 
@@ -122,8 +122,8 @@ export default function CommandExamplesSection() {
                 isVisible={isVisible}
                 delay={120 + index * 70}
               >
-                <article className="group flex h-full min-h-[220px] flex-col rounded-[24px] border border-[#B7E3F2]/80 bg-white/75 p-6 text-left shadow-[0_20px_70px_-62px_rgba(52,116,138,0.38)] backdrop-blur-sm transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#2498C7]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(36,152,199,0.42)] sm:p-7">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-[#2498C7]/35 bg-[#E7F6FB]/70 text-[#147BA6] transition-colors group-hover:border-[#2498C7]/70 group-hover:bg-[#E7F6FB]">
+                <article className="group flex h-full min-h-[220px] flex-col rounded-[24px] border border-[#D8D6F4]/80 bg-white/75 p-6 text-left shadow-[0_20px_70px_-62px_rgba(117,106,216,0.38)] backdrop-blur-sm transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-[#7D7DE8]/60 hover:bg-[#fafdff] hover:shadow-[0_24px_82px_-64px_rgba(125,125,232,0.42)] sm:p-7">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl border border-[#7D7DE8]/35 bg-[#EFEEFC]/70 text-[#5A4FC4] transition-colors group-hover:border-[#7D7DE8]/70 group-hover:bg-[#EFEEFC]">
                     <Icon
                       size={18}
                       strokeWidth={2.3}

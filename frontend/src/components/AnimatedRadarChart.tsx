@@ -183,7 +183,7 @@ export default function AnimatedRadarChart({
           ref={terRef}
           points={poly(TERTIARY[0])}
           fill="rgba(219,244,248,0.20)"
-          stroke="rgba(36,152,199,0.42)"
+          stroke="rgba(125,125,232,0.42)"
           strokeWidth={1.65}
           strokeLinejoin="round"
         />
@@ -192,7 +192,7 @@ export default function AnimatedRadarChart({
         <polygon
           ref={secRef}
           points={poly(SECONDARY[0])}
-          fill="rgba(36,152,199,0.11)"
+          fill="rgba(125,125,232,0.11)"
           stroke="rgba(36,142,177,0.34)"
           strokeWidth={1.5}
           strokeLinejoin="round"
@@ -202,11 +202,11 @@ export default function AnimatedRadarChart({
         <polygon
           ref={mainRef}
           points={poly(MAIN[0])}
-          fill="rgba(36,152,199,0.18)"
-          stroke="#2498C7"
+          fill="rgba(125,125,232,0.18)"
+          stroke="#7D7DE8"
           strokeWidth={2.4}
           strokeLinejoin="round"
-          style={{ filter: 'drop-shadow(0 4px 8px rgba(36,152,199,0.22))' }}
+          style={{ filter: 'drop-shadow(0 4px 8px rgba(125,125,232,0.22))' }}
         />
 
         {/* main vertices */}
@@ -221,7 +221,7 @@ export default function AnimatedRadarChart({
               cx={x}
               cy={y}
               r={3.6}
-              fill="#147BA6"
+              fill="#5A4FC4"
             />
           )
         })}

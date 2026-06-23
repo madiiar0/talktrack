@@ -1,16 +1,21 @@
 import TypewriterHeadline from './TypewriterHeadline'
-import PhoneDemoMockup from './PhoneDemoMockup'
+import AppStoreButton from './AppStoreButton'
 
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] w-full bg-[#fff] px-3 pb-3 pt-[80px] text-[#071014] sm:px-6 sm:pb-7 sm:pt-[80px]"
+      className="relative min-h-[100svh] w-full bg-white px-3 pb-3 pt-[80px] text-[color:var(--tt-ink)] sm:px-6 sm:pb-7 sm:pt-[80px]"
     >
-      <div className="relative min-h-[calc(100svh-92px)] overflow-hidden rounded-[28px] bg-[#dff4fb] bg-[url('/assets/hero_background.png')] bg-cover bg-center sm:min-h-[calc(100svh-124px)] sm:rounded-[34px] lg:rounded-[38px]">
-        <div className="absolute inset-0 bg-white/[0.08]" aria-hidden="true" />
+      <div className="tt-soft-panel relative min-h-[calc(100svh-92px)] overflow-hidden rounded-[28px] border-0 shadow-none sm:min-h-[calc(100svh-124px)] sm:rounded-[34px] lg:rounded-[38px]">
+        <img
+          src="/assets/hero_background.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
         <div
-          className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white/60 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white/70 to-transparent"
           aria-hidden="true"
         />
 
@@ -22,36 +27,33 @@ export default function Hero() {
             </div>
 
             <p
-              className="mt-7 max-w-[660px] text-[clamp(15px,1.1vw,20px)] font-medium leading-[1.55] tracking-[-0.01em] text-[#101820]/80 sm:mt-8"
+              className="mt-7 max-w-[660px] text-[clamp(16px,1.16vw,21px)] font-medium leading-[1.6] text-[rgba(63,75,102,0.82)] sm:mt-8"
             >
-              Talk naturally. Ask TalkTrack what to track, what to stop tracking,
-              and what changed over time. It turns conversations into structured
-              personal data, charts, summaries, and insights.
+              Reflect by speaking for 2-3 minutes. TalkTrack turns your logs
+              into visible trends, insights, and noticed patterns.
             </p>
 
             <div
-              className="mt-9 flex w-full flex-col gap-3 sm:max-w-[420px]"
+              className="mt-9 flex w-full flex-col gap-3 sm:max-w-[320px] sm:flex-row"
             >
-              <a
-                href="/waitlist"
-                className="flex h-[58px] w-full items-center justify-center rounded-[18px] border border-[#0b0b0b]/80 bg-gradient-to-r from-[#2498C7] to-[#147BA6] px-8 text-[clamp(17px,1.08vw,22px)] font-semibold tracking-[0.02em] text-white shadow-[0_18px_44px_-30px_rgba(38,114,143,0.55)] transition-[border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#147BA6] hover:shadow-[0_18px_42px_-30px_rgba(36,152,199,0.72)] active:translate-y-0 sm:h-[64px]"
-              >
-                Get Early Access
-              </a>
+              <AppStoreButton className="w-full sm:w-auto" />
             </div>
 
             <p
-              className="mt-4 text-[clamp(12px,0.82vw,15px)] font-medium text-[#101820]/50"
+              className="mt-4 text-[13px] font-medium text-[color:var(--tt-muted)] sm:text-[14px]"
             >
-              *Android and iOS apps coming soon.
+              Not medical care, therapy, diagnosis, or emergency support.
             </p>
           </div>
 
-          {/* ---- Right: interactive phone demo ---- */}
+          {/* ---- Right: app preview image ---- */}
           <div className="reveal-chart flex w-full justify-center lg:justify-end">
-            <div className="w-full max-w-[300px] sm:max-w-[320px] lg:max-w-[330px]">
-              <PhoneDemoMockup />
-            </div>
+            <img
+              src="/assets/herosectionpic.png"
+              alt="TalkTrack app daily reflection and insights preview"
+              className="h-auto w-full max-w-[340px] object-contain sm:max-w-[390px] lg:max-w-[440px] xl:max-w-[480px]"
+              draggable="false"
+            />
           </div>
         </div>
       </div>

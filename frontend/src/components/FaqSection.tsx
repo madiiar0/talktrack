@@ -6,37 +6,37 @@ const FAQS = [
   {
     question: 'What is TalkTrack?',
     answer:
-      'TalkTrack is a personal AI agent that tracks your life through normal conversation. You just talk to it, and it turns what you say into structured personal data, charts, and insights — no forms, no manual logging.',
+      'TalkTrack is your personal AI reflection companion. You can speak for 2-3 minutes, and it turns your reflection into structured logs, visible trends, insights, and noticed patterns.',
   },
   {
     question: 'How is this different from journaling?',
     answer:
-      'Journaling gives you text you have to re-read to find anything. TalkTrack turns your conversations into structured data, so you get the benefits of journaling, habit tracking, and analytics in one place — without doing the manual work.',
+      'Journaling gives you text you have to re-read to find anything. TalkTrack structures reflections using "What? So what? Now what?" so logs become easier to review over time.',
   },
   {
     question: 'Do I need to manually log everything?',
     answer:
-      'No. That is the whole point. You talk naturally and TalkTrack handles the structure behind the scenes — capturing your mood, sleep, focus, and anything else you mention, automatically.',
+      'No. You can talk naturally, and TalkTrack helps structure what you said. If a tracker value is missing, the app can ask a follow-up instead of making you fill out a long form.',
   },
   {
     question: 'What can TalkTrack track?',
     answer:
-      'Mood, sleep, energy, anxiety, focus, productivity, workouts, habits, routines, goals, and any custom topic you ask it to watch. If you can talk about it, TalkTrack can track it.',
+      'Mood, sleep, energy, focus, productivity, workouts, habits, routines, faith, health, and custom topics you choose to track. You stay in control of what belongs in your logs.',
   },
   {
     question: 'Can I stop or change what it tracks?',
     answer:
-      'Anytime, in plain English. Say "Start tracking my anxiety," "Stop tracking sleep," or "Track how often I work out," and your AI updates instantly. You stay in full control of what it follows.',
+      'Yes. You can add, pause, archive, or change trackers in the app. AI may suggest tracker changes, but app data changes happen only after you confirm them.',
   },
   {
     question: 'Will TalkTrack show charts and insights?',
     answer:
-      'Yes. Ask for trends, averages, comparisons, or summaries and TalkTrack answers with clear charts and insights drawn from your own history — so you can actually see your patterns and progress over time.',
+      'Yes. TalkTrack can show trends, averages, comparisons, summaries, and chart-style insights drawn from your own history. AI insights can be incomplete or wrong, so they are for reflection, not professional advice.',
   },
   {
     question: 'Is this available on iOS and Android?',
     answer:
-      'TalkTrack is preparing early access now, with native iOS and Android apps coming soon. Join the waitlist to be among the first to get in.',
+      'TalkTrack is preparing for iOS App Store launch. The App Store button is visible now but intentionally disabled until the live App Store link is available.',
   },
 ]
 
@@ -93,10 +93,10 @@ function FaqItem({
     <Reveal isVisible={isVisible} delay={120 + index * 70}>
       <div
         className={[
-          'overflow-hidden rounded-[22px] border bg-white/75 shadow-[0_20px_70px_-62px_rgba(52,116,138,0.34)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300',
+          'overflow-hidden rounded-[22px] border bg-white/75 shadow-[0_20px_70px_-62px_rgba(117,106,216,0.34)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-300',
           isOpen
-            ? 'border-[#2498C7]/60 bg-[#fafdff]'
-            : 'border-[#B7E3F2]/80 hover:border-[#2498C7]/45 hover:bg-[#fafdff]',
+            ? 'border-[#7D7DE8]/60 bg-[#fafdff]'
+            : 'border-[#D8D6F4]/80 hover:border-[#7D7DE8]/45 hover:bg-[#fafdff]',
         ].join(' ')}
       >
         <button
@@ -114,8 +114,8 @@ function FaqItem({
             className={[
               'grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-colors duration-300',
               isOpen
-                ? 'border-[#2498C7]/50 bg-[#E7F6FB] text-[#147BA6]'
-                : 'border-[#B7E3F2] text-[#101820]/50',
+                ? 'border-[#7D7DE8]/50 bg-[#EFEEFC] text-[#5A4FC4]'
+                : 'border-[#D8D6F4] text-[#101820]/50',
             ].join(' ')}
           >
             {isOpen ? <Minus size={16} strokeWidth={2.6} /> : <Plus size={16} strokeWidth={2.6} />}
@@ -176,11 +176,11 @@ export default function FaqSection() {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative overflow-hidden bg-[#f7fbfc] px-6 py-20 text-[#071014] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
+      className="relative overflow-hidden bg-[var(--tt-bg)] px-6 py-20 text-[color:var(--tt-ink)] sm:px-8 lg:px-[56px] lg:py-28 xl:px-[90px]"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-44 top-20 h-[30rem] w-[30rem] rounded-full bg-[#E7F6FB]/45 blur-[140px]"
+        className="pointer-events-none absolute -right-44 top-20 h-[30rem] w-[30rem] rounded-full bg-[#EFEEFC]/45 blur-[140px]"
       />
       <div className="relative z-10 mx-auto w-full max-w-[1500px]">
         <Reveal
@@ -188,18 +188,18 @@ export default function FaqSection() {
           delay={0}
           className="mx-auto max-w-[920px] text-center"
         >
-          <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.18em] text-[#147BA6]">
+          <p className="tt-eyebrow mb-4">
             FAQ
           </p>
           <h2
             className="mx-auto max-w-[920px] text-[clamp(42px,5.2vw,86px)] font-normal italic leading-[0.95] tracking-[-0.035em] text-[#050708]"
             style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
           >
-            Questions before your AI starts tracking.
+            Questions before your AI reflection companion launches.
           </h2>
           <p className="mx-auto mt-6 max-w-[820px] text-[clamp(16px,1.18vw,20px)] font-medium leading-[1.6] text-[#101820]/70">
-            Everything you need to know about natural-language tracking,
-            personal memory, privacy, and asking questions about your own data.
+            Everything you need to know about voice-first reflection,
+            structured logs, privacy, and asking questions about your own data.
           </p>
         </Reveal>
 
