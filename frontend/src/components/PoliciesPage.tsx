@@ -20,7 +20,7 @@ type PolicySection = {
   subsections: PolicySubsection[]
 }
 
-const EFFECTIVE_DATE = 'June 19, 2026'
+const EFFECTIVE_DATE = 'June 30, 2026'
 const SUPPORT_EMAIL = 'support@talktrack.life'
 
 const POLICY_SECTIONS: PolicySection[] = [
@@ -59,11 +59,12 @@ const POLICY_SECTIONS: PolicySection[] = [
         ],
       },
       {
-        heading: 'AI processing',
+        heading: 'AI Processing and Third-Party AI Services',
         body: [
-          'TalkTrack sends AI-feature inputs from the backend to Google Gemini / Google AI Studio. For check-in extraction, this can include your raw check-in text and your active tracker schema. For reflection, this can include your day text and compact tracker answer summaries. For Main AI, this can include your prompt, tracker metadata, recent completed logs, computed analytics, recent chat context, and pending tracker proposals.',
+          'TalkTrack uses third-party AI services to power features such as check-in extraction, reflection questions, summaries, tracker extraction, insights, and Main AI chat responses. These features send personal data to a third-party AI service, so TalkTrack asks for your permission in the app before sending that data. The first time you use a feature that requires AI processing, TalkTrack shows an AI Processing Permission screen that explains what is sent and where it goes. If you do not give permission, AI features that require third-party AI processing will not run and will not send your data.',
+          'When you use these AI features and give permission, TalkTrack sends the relevant inputs from its backend to Google Gemini / Google AI Studio for processing. Depending on the feature, this content can include your raw check-in or reflection text, voice transcripts you have saved into an entry, your active tracker schema and tracker answers, tags, Main AI chat messages, recent completed logs, computed analytics, recent chat context, and pending tracker proposals — the related entry context needed to generate the response.',
           'Gemini responses are validated, sanitized, and constrained by the backend before the app uses them. Main AI chat does not silently write trackers, logs, reminders, account data, or settings. Tracker changes are written only after you confirm a proposal.',
-          'AI outputs can be wrong, incomplete, or based on limited data. Do not enter emergency information or highly sensitive information if you are not comfortable with it being processed by TalkTrack and its AI service providers.',
+          'AI outputs can be wrong, incomplete, or based on limited data. You should not enter emergency information or highly sensitive information you do not want processed by TalkTrack and its AI service providers.',
         ],
       },
       {
@@ -126,7 +127,7 @@ const POLICY_SECTIONS: PolicySection[] = [
           'You can edit your display name, trackers, daily logs, and check-in content in the app where those features are available.',
           'You can pause or archive trackers; archived trackers may remain available for historical log readability until account deletion.',
           'You can turn local reminders off in the app or iOS settings.',
-          'You can choose not to use voice dictation or AI features.',
+          'You can choose not to use voice dictation or AI features, and you can decline AI processing permission when TalkTrack asks. Declining means features that require third-party AI processing will not send your data.',
           'You can request a data export through the export page and contact TalkTrack for privacy or support questions.',
           'You can delete your TalkTrack account from the app Account tab.',
         ],
