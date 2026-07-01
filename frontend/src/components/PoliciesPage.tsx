@@ -20,7 +20,7 @@ type PolicySection = {
   subsections: PolicySubsection[]
 }
 
-const EFFECTIVE_DATE = 'June 30, 2026'
+const EFFECTIVE_DATE = 'July 1, 2026'
 const SUPPORT_EMAIL = 'support@talktrack.life'
 
 const POLICY_SECTIONS: PolicySection[] = [
@@ -47,6 +47,21 @@ const POLICY_SECTIONS: PolicySection[] = [
         ],
       },
       {
+        heading: 'Health-related information you choose to record',
+        body: [
+          'TalkTrack is not a medical app and has no Apple Health or HealthKit integration. It never reads data from Apple Health, HealthKit, wearables, or any device health sensors.',
+          'You may choose to record health-related information yourself through trackers and check-ins — for example mood, anxiety, depression, stress, sleep, and self-reported activity such as steps. This information is self-reported: you type or dictate it, and it is stored as part of the tracker and check-in data described above. TalkTrack does not collect it automatically from your phone or any health data source.',
+          'Because you decide what to record, you control whether any health-related information is entered at all.',
+        ],
+      },
+      {
+        heading: 'Sensitive information in free-form entries',
+        body: [
+          'Check-ins, reflections, and journal-style entries are free-form, so you may choose to write content that could include sensitive categories — for example health details, religious or philosophical beliefs, race or ethnicity, sexual orientation, or similar information.',
+          'TalkTrack does not ask for or require any of these categories. Any such content is provided entirely by you and is stored and processed under this Privacy Policy like your other entry content. Because free-form entries can be sent to our AI service providers when you use AI features, we advise you not to enter sensitive information you do not want processed by AI.',
+        ],
+      },
+      {
         heading: 'How we use data',
         bullets: [
           'Authenticate users, sync profiles, and keep account data associated with the correct Firebase user.',
@@ -62,7 +77,8 @@ const POLICY_SECTIONS: PolicySection[] = [
         heading: 'AI Processing and Third-Party AI Services',
         body: [
           'TalkTrack uses third-party AI services to power features such as check-in extraction, reflection questions, summaries, tracker extraction, insights, and Main AI chat responses. These features send personal data to a third-party AI service, so TalkTrack asks for your permission in the app before sending that data. The first time you use a feature that requires AI processing, TalkTrack shows an AI Processing Permission screen that explains what is sent and where it goes. If you do not give permission, AI features that require third-party AI processing will not run and will not send your data.',
-          'When you use these AI features and give permission, TalkTrack sends the relevant inputs from its backend to Google Gemini / Google AI Studio for processing. Depending on the feature, this content can include your raw check-in or reflection text, voice transcripts you have saved into an entry, your active tracker schema and tracker answers, tags, Main AI chat messages, recent completed logs, computed analytics, recent chat context, and pending tracker proposals — the related entry context needed to generate the response.',
+          'When you use these AI features and give permission, TalkTrack sends the relevant inputs from its backend to the Google Gemini API (paid tier) for processing. Depending on the feature, this content can include your raw check-in or reflection text, voice transcripts you have saved into an entry, your active tracker schema and tracker answers, tags, Main AI chat messages, recent completed logs, computed analytics, recent chat context, and pending tracker proposals — the related entry context needed to generate the response.',
+          'TalkTrack uses the paid Google Gemini API tier. Under the terms that apply to the paid Gemini API, the content TalkTrack sends is not used to train or improve Google AI models; Google processes it only to generate a response for TalkTrack.',
           'Gemini responses are validated, sanitized, and constrained by the backend before the app uses them. Main AI chat does not silently write trackers, logs, reminders, account data, or settings. Tracker changes are written only after you confirm a proposal.',
           'AI outputs can be wrong, incomplete, or based on limited data. You should not enter emergency information or highly sensitive information you do not want processed by TalkTrack and its AI service providers.',
         ],
@@ -71,6 +87,7 @@ const POLICY_SECTIONS: PolicySection[] = [
         heading: 'Sharing, sale, and advertising',
         body: [
           'TalkTrack shares data with service providers only as needed to run authentication, backend storage, AI processing, subscriptions, support requests, hosting, security, and app platform features.',
+          'Every third party TalkTrack shares data with — including Google (Gemini / Google AI), Firebase/Google, Apple, RevenueCat, MongoDB hosting, and Vercel — is contractually required to protect that data to a standard at least equivalent to this Privacy Policy and to the requirements Apple sets for apps. Each may use the data only to provide its services to TalkTrack, and may not use it for its own purposes.',
           'TalkTrack does not sell personal data. The current app behavior does not include third-party advertising tracking.',
         ],
       },
@@ -97,7 +114,7 @@ const POLICY_SECTIONS: PolicySection[] = [
           'Google Sign-In for Google OAuth sign-in.',
           'Sign in with Apple for Apple account authentication.',
           'MongoDB or MongoDB-compatible hosting for backend data storage.',
-          'Google Gemini / Google AI Studio for AI extraction, reflection questions, and Main AI responses.',
+          'Google Gemini API (paid tier) for AI extraction, reflection questions, and Main AI responses.',
           'Apple iOS services, including microphone/speech recognition APIs, UserNotifications, StoreKit, and App Store subscription management.',
           'RevenueCat for subscription entitlement, offering, purchase, restore, and status management.',
           'Vercel for hosting the landing website or serverless website API routes, if deployed there.',
@@ -128,6 +145,7 @@ const POLICY_SECTIONS: PolicySection[] = [
           'You can pause or archive trackers; archived trackers may remain available for historical log readability until account deletion.',
           'You can turn local reminders off in the app or iOS settings.',
           'You can choose not to use voice dictation or AI features, and you can decline AI processing permission when TalkTrack asks. Declining means features that require third-party AI processing will not send your data.',
+          'You can withdraw consent for AI processing by choosing not to use AI features going forward, and you can email TalkTrack with questions about your AI processing consent. Requests that need third-party AI processing run only after you have granted permission.',
           'You can request a data export through the export page and contact TalkTrack for privacy or support questions.',
           'You can delete your TalkTrack account from the app Account tab.',
         ],
