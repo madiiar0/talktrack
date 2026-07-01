@@ -364,8 +364,8 @@ function PolicyPageContent({
               {EFFECTIVE_DATE}
             </p>
             <p className="mt-2">
-              These policies are written for TalkTrack, a personal AI tracking
-              and reflection app. For support, use{' '}
+              These policies are written for TalkTrack, a personal AI reflection
+              and life-tracking app. For support, use{' '}
               <PageLink href="/support">Contact TalkTrack</PageLink>. To request
               a data export, use{' '}
               <PageLink href="/export-data">Request your TalkTrack data</PageLink>.

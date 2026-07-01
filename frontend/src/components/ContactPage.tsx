@@ -41,7 +41,7 @@ export default function ContactPage() {
     <PublicPageLayout
       eyebrow="Support"
       title="Contact support."
-      description="Help and contact information for TalkTrack: AI Life Journal, a personal reflection and life-tracking app."
+      description="Help and contact information for TalkTrack, a personal AI reflection and life-tracking app."
     >
       <div className="mt-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div className="tt-card-solid p-6 sm:p-8">
@@ -49,7 +49,7 @@ export default function ContactPage() {
             <Mail size={24} strokeWidth={2.4} aria-hidden="true" />
           </div>
           <p className="tt-eyebrow">
-            TalkTrack: AI Life Journal
+            TalkTrack
           </p>
           <h2 className="mt-4 text-[32px] font-extrabold leading-[1.08] text-[color:var(--tt-ink-deep)] sm:text-[42px]">
             Contact support.
