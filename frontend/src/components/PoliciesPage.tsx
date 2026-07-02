@@ -20,7 +20,7 @@ type PolicySection = {
   subsections: PolicySubsection[]
 }
 
-const EFFECTIVE_DATE = 'July 1, 2026'
+const EFFECTIVE_DATE = 'July 2, 2026'
 const SUPPORT_EMAIL = 'support@talktrack.life'
 
 const POLICY_SECTIONS: PolicySection[] = [
@@ -153,7 +153,7 @@ const POLICY_SECTIONS: PolicySection[] = [
       {
         heading: 'Children and international processing',
         body: [
-          'TalkTrack is not directed to children under 13. If you are under the age required to use online services in your location, use TalkTrack only with permission from a parent or legal guardian.',
+          'TalkTrack is not directed to or intended for children under 13, and TalkTrack does not knowingly collect personal data from anyone under 13. If we learn that we have collected personal data from a child under 13, we will delete it. You must be at least 13 to use TalkTrack; if you are at least 13 but under the age of majority where you live, use TalkTrack only with the permission and involvement of a parent or legal guardian.',
           'Your information may be processed in countries where TalkTrack and its service providers operate. Privacy and data protection rules may differ from those in your location.',
         ],
       },
@@ -176,7 +176,8 @@ const POLICY_SECTIONS: PolicySection[] = [
       {
         heading: 'Eligibility and account responsibility',
         bullets: [
-          'You must be at least 13 years old, or the minimum age required in your jurisdiction, to use TalkTrack. If you are under the age of majority, you must have permission from a parent or legal guardian.',
+          'You must be at least 13 years old to use TalkTrack, or older if a higher minimum age applies where you live. If you are at least 13 but under the age of majority, you must have permission from a parent or legal guardian.',
+          'The App Store content rating (for example 9+) describes the content suitability of the app and comes from the Apple content questionnaire. It is separate from this eligibility requirement: whatever content rating the store shows, you must be at least 13 years old to use TalkTrack.',
           'You are responsible for the accuracy of information you submit and for keeping access to your account secure.',
           'Firebase Auth and supported sign-in providers handle credentials. TalkTrack may refuse or terminate access if an account is used in a way that violates these Terms or harms the service.',
         ],
