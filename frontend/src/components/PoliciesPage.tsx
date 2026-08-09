@@ -20,7 +20,7 @@ type PolicySection = {
   subsections: PolicySubsection[]
 }
 
-const EFFECTIVE_DATE = 'July 9, 2026'
+const EFFECTIVE_DATE = 'August 9, 2026'
 const SUPPORT_EMAIL = 'support@talktrack.life'
 
 const POLICY_SECTIONS: PolicySection[] = [
@@ -40,9 +40,9 @@ const POLICY_SECTIONS: PolicySection[] = [
           'Tracker data, such as tracker names, questions, descriptions, types, units, options, scale or number settings, active or archived status, sort order, and whether a tracker was created by the system, you, or an AI proposal you confirmed.',
           'Check-in and daily log data, such as date, timezone, raw check-in text, cleaned summaries, tracker answers, display values, answer source, AI confidence, draft check-in sessions, reflection answers, completed dates, streaks, XP, levels, and chart-ready derived values.',
           'Main AI data, such as chat prompts, assistant responses, chat titles and previews, message history, sections, AI usage events, pending or resolved tracker action proposals, and backend-validated visual blocks such as stat cards and charts.',
-          'Voice data when you choose to use it. For voice dictation, the iOS app uses microphone and speech recognition APIs to turn speech into editable text, and TalkTrack sends or stores the resulting text only if you submit or save it in a check-in, reflection, or AI chat. For voice features that speak responses aloud, TalkTrack processes the text needed to generate that audio.',
-          'AI artwork data, if you use artwork features, such as the prompt and selected reflection context used to generate an image.',
-          'Scan or photo content, if you choose to use scan or photo features, and the text extracted from it that is needed to complete your request.',
+          'Voice data when you choose to use it. For voice transcription, the iOS app records a finalized audio clip and uploads it through the TalkTrack backend to Groq, which returns a transcript. The transcript may be inserted into an editable reflection or check-in or used as a voice or AI chat message. For voice features that speak AI responses aloud, TalkTrack processes the generated response text needed to create that audio.',
+          'AI artwork data, if you use artwork features, such as your selected style, the generated artwork prompt, and the cleaned summary, emotional labels, topics, and recent scene context used to derive that prompt.',
+          'Scan or photo data when you choose those features, including local reflection photo attachments and text extracted on-device from scanned pages. When you request AI scan organization, TalkTrack sends the extracted text, not the image bytes, to its backend for processing.',
           'Notification and widget data, such as local reminder settings stored on your device and a small widget cache with tracker names, tracker types, recent dates, numeric or yes/no values, streak counts, and check-in counts.',
           'Website and support request data, such as waitlist name/contact/payment preference/suggestions submitted on the website before launch, and the name, email address, and message content of any email you send to support@talktrack.life for support, privacy, deletion, or data export requests.',
           'Technical metadata needed to operate the service, such as request timestamps, server logs, rate-limit state, Firebase authentication metadata, app store or subscription status metadata, and provider diagnostics.',
@@ -79,10 +79,13 @@ const POLICY_SECTIONS: PolicySection[] = [
       {
         heading: 'AI Processing and Third-Party AI Services',
         body: [
-          'TalkTrack uses third-party AI services to power features such as check-in extraction, reflection questions, summaries, tracker extraction, insights, and Main AI chat responses. These features send personal data to a third-party AI service, so TalkTrack asks for your permission in the app before sending that data. The first time you use a feature that requires AI processing, TalkTrack shows an AI Processing Permission screen that explains what is sent and where it goes. If you do not give permission, AI features that require third-party AI processing will not run and will not send your data.',
-          'When you use these AI features and give permission, TalkTrack sends the minimum content necessary from its backend to the relevant third-party AI provider. For text AI features — including check-in and tracker extraction, reflection questions, summaries, insights, Mirror-style analysis, and Main AI chat — TalkTrack may send content to DeepSeek. Depending on the feature, this content can include your raw check-in or reflection text, voice transcripts you have saved into an entry, your active tracker schema and tracker answers, tags, Main AI chat messages, recent completed logs, computed analytics, recent chat context, pending tracker proposals, and cleaned text from scans or photos you choose to process — the related entry context needed to generate the response.',
-          'If you use AI artwork or image features, TalkTrack may send the prompt and selected reflection context needed to generate the image to fal.ai (FLUX). If you use voice features that speak responses aloud (text-to-speech), TalkTrack may send the text needed to produce that audio to OpenAI. TalkTrack sends data to each provider only when it is needed for the specific AI feature you choose to use.',
-          'TalkTrack sends only the content needed to complete your request, and each AI provider is permitted to use it to generate a response for TalkTrack and to provide its service, not for its own unrelated purposes. TalkTrack does not control how a provider independently operates its systems, so you should not enter highly sensitive information you would not want processed by a third-party AI service.',
+          'TalkTrack uses third-party AI providers to power features such as check-in and tracker extraction, reflection questions, summaries, insights, Mirror-style analysis, Main AI chat, speech transcription, AI artwork, and spoken AI responses.',
+          'On the Sign Up screen, after Confirm Password, TalkTrack presents a dedicated AI-processing consent checkbox. It is unchecked by default. The checkbox text states that the user agrees to the AI processing and third-party data sharing described in the disclosure, and an underlined “AI Processing & Data Sharing” link beside the consent action opens that disclosure in the app. The user may check the box without opening the disclosure first, but the disclosure is directly available before account creation.',
+          'Create Account remains unavailable until the user affirmatively checks the box. Checking the box and creating the account records the current AI consent and disclosure version as the user’s explicit permission for the third-party AI processing described there. The Privacy Policy and Terms of Service describe this mechanism; agreeing to those documents alone is not the AI-processing permission.',
+          'Checking the box or creating an account does not itself transmit journal, reflection, tracker, chat, scan, photo, or voice content to an AI provider. Personal content is transmitted only later, when the user actually invokes an AI-powered feature that requires that processing. Because compatible permission was obtained and recorded during registration, the app does not present a second AI-consent popup when those features are first used. Existing users retain their previously recorded compatible AI consent or agreement state.',
+          'Different AI features send different inputs; TalkTrack does not send every category on every request. For text AI features, DeepSeek may receive only the context needed for the selected feature, such as journal, check-in, or reflection text; saved voice transcripts included in submitted content; AI chat messages and recent chat context; relevant recent or older log context, titles, summaries, tags, and emotional labels; tracker names, questions, definitions, options, answers, and related values; pending tracker proposals; computed analytics; relevant profile or Toki preferences used for personalization; and text extracted on-device from scans or photos submitted for AI organization.',
+          'For AI artwork, DeepSeek may first receive the cleaned reflection summary, emotional labels, topics, and recent scene context needed to derive an artwork concept; fal.ai (FLUX) then receives the resulting feature-specific image prompt. For speech transcription, Groq receives the recorded audio clip and any optional language hint needed to return a transcript. For spoken AI audio, OpenAI receives the generated AI response text and selected voice information needed to synthesize that response. Each provider receives information only when the corresponding feature is used.',
+          'TalkTrack limits each request to the information needed to provide the selected feature. Each provider handles that information under the terms, privacy policy, and agreements applicable to its service, and TalkTrack does not control how a provider independently operates its systems. Do not submit highly sensitive content that you do not want processed by the relevant third-party AI service.',
           'AI responses are validated, sanitized, and constrained by the backend before the app uses them. Main AI chat does not silently write trackers, logs, reminders, account data, or settings. Tracker changes are written only after you confirm a proposal.',
           'AI outputs can be wrong, incomplete, or based on limited data. You should not enter emergency information or highly sensitive information you do not want processed by TalkTrack and its AI service providers.',
         ],
@@ -91,14 +94,14 @@ const POLICY_SECTIONS: PolicySection[] = [
         heading: 'Sharing, sale, and advertising',
         body: [
           'TalkTrack shares data with service providers only as needed to run authentication, backend storage, AI processing, subscriptions, support requests, hosting, security, and app platform features.',
-          'Every third party TalkTrack shares data with — including its AI providers (DeepSeek, fal.ai, and OpenAI), Firebase/Google, Apple, RevenueCat, MongoDB hosting, and Vercel — is contractually required to protect that data to a standard at least equivalent to this Privacy Policy and to the requirements Apple sets for apps. Each may use the data only to provide its services to TalkTrack, and may not use it for its own purposes.',
+          'TalkTrack limits its disclosures to the services and purposes described in this Privacy Policy. The third parties involved include its AI providers (DeepSeek, fal.ai, Groq, and OpenAI), Firebase/Google, Apple, RevenueCat, MongoDB hosting, and Vercel. Each provider handles data under the terms, privacy policy, and agreements applicable to its service, and operates systems that TalkTrack does not control.',
           'TalkTrack does not sell personal data. The current app behavior does not include third-party advertising tracking.',
         ],
       },
       {
         heading: 'Voice, notifications, and widgets',
         body: [
-          'Voice input is optional. Audio is handled through Apple iOS microphone and speech recognition APIs; TalkTrack does not send raw microphone audio to the TalkTrack backend. The transcript is editable before you save or send it.',
+          'Voice input is optional. When you choose voice transcription, the app records a finalized audio clip, uploads it to the TalkTrack backend, and sends it to Groq for transcription. A reflection or check-in transcript can be reviewed or edited in the app; a Call Toki transcript is used as the voice-chat message. A transcript included in an AI feature may then be sent to DeepSeek as part of that feature’s required text context.',
           'Daily reminders are local device notifications. TalkTrack does not currently use backend push notifications. You can turn reminders off in the app or iOS settings.',
           'Widgets use a local App Group cache so the widget can show lightweight summaries. The widget cache is designed not to include raw check-in text, cleaned summaries, reflection text, Main AI chat content, Firebase tokens, or your email address.',
         ],
@@ -120,8 +123,9 @@ const POLICY_SECTIONS: PolicySection[] = [
           'MongoDB or MongoDB-compatible hosting for backend data storage.',
           'DeepSeek for text AI features, such as check-in and tracker extraction, reflection questions, chat, summaries, insights, Mirror-style analysis, and scan/photo text cleanup.',
           'fal.ai (FLUX) for AI artwork and image generation, if you use artwork features.',
+          'Groq for speech-to-text transcription when you choose to record or upload audio for transcription.',
           'OpenAI for voice text-to-speech, if you use voice features that generate spoken audio.',
-          'Apple iOS services, including microphone/speech recognition APIs, UserNotifications, StoreKit, and App Store subscription management.',
+          'Apple iOS services, including microphone access, on-device Vision text recognition, on-device system text-to-speech fallback, UserNotifications, StoreKit, and App Store subscription management.',
           'RevenueCat for subscription entitlement, offering, purchase, restore, and status management.',
           'Vercel for hosting the landing website or serverless website API routes, if deployed there.',
           'Firebase/Google, Apple, RevenueCat, Vercel, MongoDB, and similar infrastructure providers may process limited device, app, request, or diagnostic metadata needed to operate, secure, bill, or troubleshoot their services. The current app code does not include custom analytics event logging or a separate crash-reporting SDK.',
@@ -150,8 +154,9 @@ const POLICY_SECTIONS: PolicySection[] = [
           'You can edit your display name, trackers, daily logs, and check-in content in the app where those features are available.',
           'You can pause or archive trackers; archived trackers may remain available for historical log readability until account deletion.',
           'You can turn local reminders off in the app or iOS settings.',
-          'You can choose not to use voice dictation or AI features, and you can decline AI processing permission when TalkTrack asks. Declining means features that require third-party AI processing will not send your data.',
-          'You can withdraw consent for AI processing by choosing not to use AI features going forward, and you can email TalkTrack with questions about your AI processing consent. Requests that need third-party AI processing run only after you have granted permission.',
+          'For a new account, AI-processing permission is requested during registration through the dedicated checkbox, which is unchecked by default. You can open the linked in-app “AI Processing & Data Sharing” disclosure before creating the account.',
+          'After registration, personal content is transmitted to a third-party AI provider only when you invoke a relevant AI-powered feature. You control the journal, reflection, chat, scan or photo, tracker, voice, and other content you choose to submit, and you should not submit content that you do not want processed by the relevant provider.',
+          'You can choose not to use optional AI-powered features or voice transcription. There is no separate AI-permission dialog or AI opt-out setting after account creation.',
           'You can request a data export through the export page and contact TalkTrack for privacy or support questions.',
           'You can delete your TalkTrack account from the app Account tab.',
         ],
@@ -228,7 +233,8 @@ const POLICY_SECTIONS: PolicySection[] = [
         heading: 'AI outputs and personal decisions',
         body: [
           'AI outputs are informational and may be incomplete, outdated, or wrong. You are responsible for deciding how to use any summary, chart, reflection question, action plan, or suggestion. TalkTrack is not a medical, psychiatric, emergency, or therapy service, and you should not rely on it for crisis, diagnosis, or medical, legal, or financial decisions.',
-          'TalkTrack AI features rely on third-party AI providers. The app asks for your consent before sending your personal data to those providers, and AI features that require third-party processing will not run until you allow it. The providers TalkTrack may use are described in the Privacy Policy.',
+          'TalkTrack AI features rely on third-party AI providers. During registration, the Sign Up screen requests explicit permission for the described AI processing and third-party data sharing through a dedicated checkbox that is unchecked by default. Create Account remains unavailable until the user affirmatively checks the box. The underlined “AI Processing & Data Sharing” link beside the checkbox opens an in-app disclosure explaining what personal data may be sent, which providers receive it, why it is sent, and when it is sent. The checkbox, not these Terms or the Privacy Policy alone, is how the app obtains the permission.',
+          'Checking the box and creating the account records the current AI consent and disclosure version. Account creation itself does not send journal or reflection content to an AI provider; personal content is sent only later when the user actually uses an AI-powered feature that requires that processing. Provider and data-category details are also available in the Privacy Policy.',
           'TalkTrack may propose tracker changes, but app data changes happen only when you confirm the proposal through the app flow.',
         ],
       },
